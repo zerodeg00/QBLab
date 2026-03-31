@@ -1,100 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Trades on 큐비랩 — 자동매매 시스템의 시장 분석</title><link>https://qblab.kr/trades/</link><description>Recent content in Trades on 큐비랩 — 자동매매 시스템의 시장 분석</description><generator>Hugo</generator><language>ko</language><lastBuildDate>Fri, 27 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://qblab.kr/trades/index.xml" rel="self" type="application/rss+xml"/><item><title>26년 선물 매매내역</title><link>https://qblab.kr/trades/binance/</link><pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate><guid>https://qblab.kr/trades/binance/</guid><description>&lt;p&gt;큐비랩 자동매매 시스템의 바이낸스 선물 실제 거래 기록이다. 새로운 거래가 발생할 때마다 업데이트한다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;자동매매 시스템은 현재도 지속적으로 개발·개선 중이다. 개발 과정에서 전략이 업데이트되기 때문에 실제 매매 결과가 최종 백테스트와 다를 수 있다. 최종적으로는 백테스트와 동일한 성과를 실현하는 것이 목표다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;#&lt;/th&gt;
- &lt;th&gt;방향&lt;/th&gt;
- &lt;th&gt;진입일&lt;/th&gt;
- &lt;th&gt;청산일&lt;/th&gt;
- &lt;th&gt;BTC 진입가&lt;/th&gt;
- &lt;th&gt;BTC 청산가&lt;/th&gt;
- &lt;th&gt;수익률&lt;/th&gt;
- &lt;th&gt;누적 수익률&lt;/th&gt;
- &lt;th&gt;결과&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;1&lt;/td&gt;
- &lt;td&gt;Short&lt;/td&gt;
- &lt;td&gt;01-01&lt;/td&gt;
- &lt;td&gt;01-02&lt;/td&gt;
- &lt;td&gt;$87,615&lt;/td&gt;
- &lt;td&gt;$88,810&lt;/td&gt;
- &lt;td&gt;-2.93%&lt;/td&gt;
- &lt;td&gt;-2.93%&lt;/td&gt;
- &lt;td&gt;손실&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;2&lt;/td&gt;
- &lt;td&gt;Long&lt;/td&gt;
- &lt;td&gt;02-06&lt;/td&gt;
- &lt;td&gt;02-27&lt;/td&gt;
- &lt;td&gt;$65,272&lt;/td&gt;
- &lt;td&gt;$67,258&lt;/td&gt;
- &lt;td&gt;+5.88%&lt;/td&gt;
- &lt;td&gt;+2.78%&lt;/td&gt;
- &lt;td&gt;수익&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;3&lt;/td&gt;
- &lt;td&gt;Long&lt;/td&gt;
- &lt;td&gt;02-27&lt;/td&gt;
- &lt;td&gt;03-01&lt;/td&gt;
- &lt;td&gt;$66,222&lt;/td&gt;
- &lt;td&gt;$66,351&lt;/td&gt;
- &lt;td&gt;+0.19%&lt;/td&gt;
- &lt;td&gt;+2.98%&lt;/td&gt;
- &lt;td&gt;수익&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;4&lt;/td&gt;
- &lt;td&gt;Long&lt;/td&gt;
- &lt;td&gt;03-01&lt;/td&gt;
- &lt;td&gt;03-08&lt;/td&gt;
- &lt;td&gt;$66,639&lt;/td&gt;
- &lt;td&gt;$67,066&lt;/td&gt;
- &lt;td&gt;+1.08%&lt;/td&gt;
- &lt;td&gt;+4.09%&lt;/td&gt;
- &lt;td&gt;수익&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;5&lt;/td&gt;
- &lt;td&gt;Short&lt;/td&gt;
- &lt;td&gt;03-21&lt;/td&gt;
- &lt;td&gt;03-22&lt;/td&gt;
- &lt;td&gt;$70,494&lt;/td&gt;
- &lt;td&gt;$68,700&lt;/td&gt;
- &lt;td&gt;+4.89%&lt;/td&gt;
- &lt;td&gt;+9.18%&lt;/td&gt;
- &lt;td&gt;수익&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;6&lt;/td&gt;
- &lt;td&gt;Long&lt;/td&gt;
- &lt;td&gt;03-24&lt;/td&gt;
- &lt;td&gt;03-25&lt;/td&gt;
- &lt;td&gt;$70,966&lt;/td&gt;
- &lt;td&gt;$71,410&lt;/td&gt;
- &lt;td&gt;+1.05%&lt;/td&gt;
- &lt;td&gt;+10.33%&lt;/td&gt;
- &lt;td&gt;수익&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;7&lt;/td&gt;
- &lt;td&gt;Short&lt;/td&gt;
- &lt;td&gt;03-25&lt;/td&gt;
- &lt;td&gt;03-27&lt;/td&gt;
- &lt;td&gt;$71,414&lt;/td&gt;
- &lt;td&gt;$68,774&lt;/td&gt;
- &lt;td&gt;+7.20%&lt;/td&gt;
- &lt;td&gt;+18.27%&lt;/td&gt;
- &lt;td&gt;수익&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;blockquote&gt;
-&lt;p&gt;7건 청산: 6승 1패 (승률 86%) · 누적 수익률 +18.27%&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Trades on 큐비랩 — 자동매매 시스템의 시장 분석</title>
+    <link>http://localhost:1313/trades/</link>
+    <description>Recent content in Trades on 큐비랩 — 자동매매 시스템의 시장 분석</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <lastBuildDate>Fri, 27 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/trades/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>26년 선물 매매내역</title>
+      <link>http://localhost:1313/trades/binance/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/trades/binance/</guid>
+      <description>&lt;p&gt;큐비랩 자동매매 시스템의 바이낸스 선물 실제 거래 기록이다. 새로운 거래가 발생할 때마다 업데이트한다.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;자동매매 시스템은 현재도 지속적으로 개발·개선 중이다. 개발 과정에서 전략이 업데이트되기 때문에 실제 매매 결과가 최종 백테스트와 다를 수 있다. 최종적으로는 백테스트와 동일한 성과를 실현하는 것이 목표다.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;#&lt;/th&gt;&#xA;          &lt;th&gt;방향&lt;/th&gt;&#xA;          &lt;th&gt;진입일&lt;/th&gt;&#xA;          &lt;th&gt;청산일&lt;/th&gt;&#xA;          &lt;th&gt;BTC 진입가&lt;/th&gt;&#xA;          &lt;th&gt;BTC 청산가&lt;/th&gt;&#xA;          &lt;th&gt;수익률&lt;/th&gt;&#xA;          &lt;th&gt;누적 수익률&lt;/th&gt;&#xA;          &lt;th&gt;결과&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;1&lt;/td&gt;&#xA;          &lt;td&gt;Short&lt;/td&gt;&#xA;          &lt;td&gt;01-01&lt;/td&gt;&#xA;          &lt;td&gt;01-02&lt;/td&gt;&#xA;          &lt;td&gt;$87,615&lt;/td&gt;&#xA;          &lt;td&gt;$88,810&lt;/td&gt;&#xA;          &lt;td&gt;-2.93%&lt;/td&gt;&#xA;          &lt;td&gt;-2.93%&lt;/td&gt;&#xA;          &lt;td&gt;손실&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;2&lt;/td&gt;&#xA;          &lt;td&gt;Long&lt;/td&gt;&#xA;          &lt;td&gt;02-06&lt;/td&gt;&#xA;          &lt;td&gt;02-27&lt;/td&gt;&#xA;          &lt;td&gt;$65,272&lt;/td&gt;&#xA;          &lt;td&gt;$67,258&lt;/td&gt;&#xA;          &lt;td&gt;+5.88%&lt;/td&gt;&#xA;          &lt;td&gt;+2.78%&lt;/td&gt;&#xA;          &lt;td&gt;수익&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;3&lt;/td&gt;&#xA;          &lt;td&gt;Long&lt;/td&gt;&#xA;          &lt;td&gt;02-27&lt;/td&gt;&#xA;          &lt;td&gt;03-01&lt;/td&gt;&#xA;          &lt;td&gt;$66,222&lt;/td&gt;&#xA;          &lt;td&gt;$66,351&lt;/td&gt;&#xA;          &lt;td&gt;+0.19%&lt;/td&gt;&#xA;          &lt;td&gt;+2.98%&lt;/td&gt;&#xA;          &lt;td&gt;수익&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;4&lt;/td&gt;&#xA;          &lt;td&gt;Long&lt;/td&gt;&#xA;          &lt;td&gt;03-01&lt;/td&gt;&#xA;          &lt;td&gt;03-08&lt;/td&gt;&#xA;          &lt;td&gt;$66,639&lt;/td&gt;&#xA;          &lt;td&gt;$67,066&lt;/td&gt;&#xA;          &lt;td&gt;+1.08%&lt;/td&gt;&#xA;          &lt;td&gt;+4.09%&lt;/td&gt;&#xA;          &lt;td&gt;수익&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;5&lt;/td&gt;&#xA;          &lt;td&gt;Short&lt;/td&gt;&#xA;          &lt;td&gt;03-21&lt;/td&gt;&#xA;          &lt;td&gt;03-22&lt;/td&gt;&#xA;          &lt;td&gt;$70,494&lt;/td&gt;&#xA;          &lt;td&gt;$68,700&lt;/td&gt;&#xA;          &lt;td&gt;+4.89%&lt;/td&gt;&#xA;          &lt;td&gt;+9.18%&lt;/td&gt;&#xA;          &lt;td&gt;수익&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;6&lt;/td&gt;&#xA;          &lt;td&gt;Long&lt;/td&gt;&#xA;          &lt;td&gt;03-24&lt;/td&gt;&#xA;          &lt;td&gt;03-25&lt;/td&gt;&#xA;          &lt;td&gt;$70,966&lt;/td&gt;&#xA;          &lt;td&gt;$71,410&lt;/td&gt;&#xA;          &lt;td&gt;+1.05%&lt;/td&gt;&#xA;          &lt;td&gt;+10.33%&lt;/td&gt;&#xA;          &lt;td&gt;수익&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;7&lt;/td&gt;&#xA;          &lt;td&gt;Short&lt;/td&gt;&#xA;          &lt;td&gt;03-25&lt;/td&gt;&#xA;          &lt;td&gt;03-27&lt;/td&gt;&#xA;          &lt;td&gt;$71,414&lt;/td&gt;&#xA;          &lt;td&gt;$68,774&lt;/td&gt;&#xA;          &lt;td&gt;+7.20%&lt;/td&gt;&#xA;          &lt;td&gt;+18.27%&lt;/td&gt;&#xA;          &lt;td&gt;수익&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;7건 청산: 6승 1패 (승률 86%) · 누적 수익률 +18.27%&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

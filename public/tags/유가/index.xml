@@ -1,39 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>유가 on 큐비랩 — 자동매매 시스템의 시장 분석</title><link>https://qblab.kr/tags/%EC%9C%A0%EA%B0%80/</link><description>Recent content in 유가 on 큐비랩 — 자동매매 시스템의 시장 분석</description><generator>Hugo</generator><language>ko</language><lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://qblab.kr/tags/%EC%9C%A0%EA%B0%80/index.xml" rel="self" type="application/rss+xml"/><item><title>[26/03/23] 데일리 브리핑 — FOMC 매파 동결·유가 급등 속 비트코인 6일 연속 하락</title><link>https://qblab.kr/posts/260323-bitcoin-67800-whale-accumulation/</link><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate><guid>https://qblab.kr/posts/260323-bitcoin-67800-whale-accumulation/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;포지션: &lt;strong&gt;관망&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;비트코인이 지난주 $74,800대 고점을 찍은 뒤 6거래일 연속 하락하며 $67,800선까지 밀렸다. 일주일 사이 약 9%가 빠진 셈이다. 연준의 매파적 금리 동결과 중동발 유가 급등이 동시에 위험자산을 짓누르고 있다. 그러나 블록체인 위의 데이터는 전혀 다른 방향을 가리키고 있다.&lt;/p&gt;
-&lt;h3 id="주요-일정"&gt;주요 일정&lt;/h3&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;날짜&lt;/th&gt;
- &lt;th&gt;이벤트&lt;/th&gt;
- &lt;th&gt;예상 영향&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;03/28&lt;/td&gt;
- &lt;td&gt;미국 PCE 물가지수 발표&lt;/td&gt;
- &lt;td&gt;인플레 방향 확인, 금리 인하 기대에 직접 영향&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;03/30&lt;/td&gt;
- &lt;td&gt;트럼프 대통령 중국 방문&lt;/td&gt;
- &lt;td&gt;관세 협상 결과에 따라 위험자산 변동성 확대&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;04/04&lt;/td&gt;
- &lt;td&gt;3월 고용보고서 (NFP)&lt;/td&gt;
- &lt;td&gt;고용 둔화 시 금리인하 기대 부활 가능&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;04/10&lt;/td&gt;
- &lt;td&gt;3월 CPI 발표&lt;/td&gt;
- &lt;td&gt;유가 충격이 인플레에 반영되는지 확인&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;hr&gt;
-&lt;h2 id="시장-현황"&gt;시장 현황&lt;/h2&gt;
-&lt;p&gt;비트코인은 3월 16일 $74,800 부근에서 주간 고점을 기록한 뒤 급격한 하락세에 진입했다. 현재 가격은 기술적 지지선에 접근하고 있으며, 과매도 영역에도 가까워지고 있다.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>유가 on 큐비랩 — 자동매매 시스템의 시장 분석</title>
+    <link>http://localhost:1313/tags/%EC%9C%A0%EA%B0%80/</link>
+    <description>Recent content in 유가 on 큐비랩 — 자동매매 시스템의 시장 분석</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%EC%9C%A0%EA%B0%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[26/03/23] 데일리 브리핑 — FOMC 매파 동결·유가 급등 속 비트코인 6일 연속 하락</title>
+      <link>http://localhost:1313/posts/260323-bitcoin-67800-whale-accumulation/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/260323-bitcoin-67800-whale-accumulation/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;포지션: &lt;strong&gt;관망&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;비트코인이 지난주 $74,800대 고점을 찍은 뒤 6거래일 연속 하락하며 $67,800선까지 밀렸다. 일주일 사이 약 9%가 빠진 셈이다. 연준의 매파적 금리 동결과 중동발 유가 급등이 동시에 위험자산을 짓누르고 있다. 그러나 블록체인 위의 데이터는 전혀 다른 방향을 가리키고 있다.&lt;/p&gt;&#xA;&lt;h3 id=&#34;주요-일정&#34;&gt;주요 일정&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;날짜&lt;/th&gt;&#xA;          &lt;th&gt;이벤트&lt;/th&gt;&#xA;          &lt;th&gt;예상 영향&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;03/28&lt;/td&gt;&#xA;          &lt;td&gt;미국 PCE 물가지수 발표&lt;/td&gt;&#xA;          &lt;td&gt;인플레 방향 확인, 금리 인하 기대에 직접 영향&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;03/30&lt;/td&gt;&#xA;          &lt;td&gt;트럼프 대통령 중국 방문&lt;/td&gt;&#xA;          &lt;td&gt;관세 협상 결과에 따라 위험자산 변동성 확대&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;04/04&lt;/td&gt;&#xA;          &lt;td&gt;3월 고용보고서 (NFP)&lt;/td&gt;&#xA;          &lt;td&gt;고용 둔화 시 금리인하 기대 부활 가능&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;04/10&lt;/td&gt;&#xA;          &lt;td&gt;3월 CPI 발표&lt;/td&gt;&#xA;          &lt;td&gt;유가 충격이 인플레에 반영되는지 확인&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;시장-현황&#34;&gt;시장 현황&lt;/h2&gt;&#xA;&lt;p&gt;비트코인은 3월 16일 $74,800 부근에서 주간 고점을 기록한 뒤 급격한 하락세에 진입했다. 현재 가격은 기술적 지지선에 접근하고 있으며, 과매도 영역에도 가까워지고 있다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
