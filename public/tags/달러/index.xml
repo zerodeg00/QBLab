@@ -1,34 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>달러 on 큐비랩 — 자동매매 시스템의 시장 분석</title><link>https://qblab.kr/tags/%EB%8B%AC%EB%9F%AC/</link><description>Recent content in 달러 on 큐비랩 — 자동매매 시스템의 시장 분석</description><generator>Hugo</generator><language>ko</language><lastBuildDate>Sat, 28 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://qblab.kr/tags/%EB%8B%AC%EB%9F%AC/index.xml" rel="self" type="application/rss+xml"/><item><title>[26/03/28] 데일리 브리핑 — 달러 100 돌파와 ETF 대규모 유출, BTC $66K 하회</title><link>https://qblab.kr/posts/260328-dxy-100-etf-outflow-btc-66k/</link><pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate><guid>https://qblab.kr/posts/260328-dxy-100-etf-outflow-btc-66k/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;포지션: &lt;strong&gt;관망&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;달러인덱스(DXY)가 다시 100선을 넘어서면서 위험자산 전반에 압력이 가해지고 있다. 비트코인은 이틀 연속 하락하며 $66,364까지 밀렸고, 공포탐욕지수는 극단적 공포 영역에 머물고 있다. ETF 시장에서는 대규모 자금 유출이 발생했지만, 온체인에서는 정반대의 축적 신호가 포착되고 있다.&lt;/p&gt;
-&lt;h3 id="주요-일정"&gt;주요 일정&lt;/h3&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;날짜&lt;/th&gt;
- &lt;th&gt;이벤트&lt;/th&gt;
- &lt;th&gt;예상 영향&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;03/28&lt;/td&gt;
- &lt;td&gt;미국 PCE 물가지수 발표&lt;/td&gt;
- &lt;td&gt;인플레이션 기대 재조정, 금리 경로에 직접 영향&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;04/02&lt;/td&gt;
- &lt;td&gt;트럼프 상호관세 2차 발동 예정&lt;/td&gt;
- &lt;td&gt;무역 불확실성 재점화 가능&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;05/06-07&lt;/td&gt;
- &lt;td&gt;차기 FOMC 회의&lt;/td&gt;
- &lt;td&gt;금리 동결 vs 인하 기대 재평가&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;hr&gt;
-&lt;h2 id="시장-현황"&gt;시장 현황&lt;/h2&gt;
-&lt;p&gt;비트코인은 3월 27일 $69,143에서 $65,501까지 장중 낙폭을 키운 뒤 $66,364에 마감했다. 전일 대비 약 3.5% 하락이다. 3월 18일 $74,633 고점 이후 열흘 만에 11% 넘게 빠진 셈이다. 볼린저 밴드 하단에 바짝 붙어 있어 기술적으로도 과매도 구간에 진입하고 있다.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>달러 on 큐비랩 — 자동매매 시스템의 시장 분석</title>
+    <link>http://localhost:1313/tags/%EB%8B%AC%EB%9F%AC/</link>
+    <description>Recent content in 달러 on 큐비랩 — 자동매매 시스템의 시장 분석</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <lastBuildDate>Sat, 28 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%EB%8B%AC%EB%9F%AC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[26/03/28] 데일리 브리핑 — 달러 100 돌파와 ETF 대규모 유출, BTC $66K 하회</title>
+      <link>http://localhost:1313/posts/260328-dxy-100-etf-outflow-btc-66k/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/260328-dxy-100-etf-outflow-btc-66k/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;포지션: &lt;strong&gt;관망&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;달러인덱스(DXY)가 다시 100선을 넘어서면서 위험자산 전반에 압력이 가해지고 있다. 비트코인은 이틀 연속 하락하며 $66,364까지 밀렸고, 공포탐욕지수는 극단적 공포 영역에 머물고 있다. ETF 시장에서는 대규모 자금 유출이 발생했지만, 온체인에서는 정반대의 축적 신호가 포착되고 있다.&lt;/p&gt;&#xA;&lt;h3 id=&#34;주요-일정&#34;&gt;주요 일정&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;날짜&lt;/th&gt;&#xA;          &lt;th&gt;이벤트&lt;/th&gt;&#xA;          &lt;th&gt;예상 영향&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;03/28&lt;/td&gt;&#xA;          &lt;td&gt;미국 PCE 물가지수 발표&lt;/td&gt;&#xA;          &lt;td&gt;인플레이션 기대 재조정, 금리 경로에 직접 영향&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;04/02&lt;/td&gt;&#xA;          &lt;td&gt;트럼프 상호관세 2차 발동 예정&lt;/td&gt;&#xA;          &lt;td&gt;무역 불확실성 재점화 가능&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;05/06-07&lt;/td&gt;&#xA;          &lt;td&gt;차기 FOMC 회의&lt;/td&gt;&#xA;          &lt;td&gt;금리 동결 vs 인하 기대 재평가&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;시장-현황&#34;&gt;시장 현황&lt;/h2&gt;&#xA;&lt;p&gt;비트코인은 3월 27일 $69,143에서 $65,501까지 장중 낙폭을 키운 뒤 $66,364에 마감했다. 전일 대비 약 3.5% 하락이다. 3월 18일 $74,633 고점 이후 열흘 만에 11% 넘게 빠진 셈이다. 볼린저 밴드 하단에 바짝 붙어 있어 기술적으로도 과매도 구간에 진입하고 있다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

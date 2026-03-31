@@ -22,7 +22,7 @@ paginate = 12
 
   [[params.socialIcons]]
     name = 'github'
-    url = 'https://github.com/ok0035'
+    url = 'https://github.com/zerodeg00'
 
 [params.cover]
   hidden = false

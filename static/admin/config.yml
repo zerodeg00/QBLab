@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  repo: ok0035/QBLab
+  repo: zerodeg00/QBLab
   branch: main
   auth_type: pkce
   base_url: https://auth.decapbridge.com
