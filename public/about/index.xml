@@ -1,19 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Abouts on 큐비랩 — 자동매매 시스템의 시장 분석</title>
-    <link>http://localhost:1313/about/</link>
-    <description>Recent content in Abouts on 큐비랩 — 자동매매 시스템의 시장 분석</description>
-    <generator>Hugo</generator>
-    <language>ko</language>
-    <lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/about/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>큐비랩 자동매매 시스템 — 5년간의 백테스트 성과 공개</title>
-      <link>http://localhost:1313/about/qlab-intro/</link>
-      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/qlab-intro/</guid>
-      <description>&lt;p&gt;비트코인 시장에서 감정을 배제하고 데이터로만 매매한다면 어떤 결과가 나올까? 큐비랩은 이 질문에 답하기 위해 자동매매 시스템을 직접 개발하고, 실제로 운용하고 있다. 오늘은 이 시스템의 5년간 백테스트 성과를 공개한다.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;어떤-시스템인가&#34;&gt;어떤 시스템인가&lt;/h2&gt;&#xA;&lt;p&gt;큐비랩의 자동매매 시스템은 비트코인 선물(바이낸스)에서 &lt;strong&gt;롱과 숏을 자동으로 전환&lt;/strong&gt;하는 전략이다. 상승장에서는 롱, 하락장에서는 숏으로 포지션을 바꾸며, 시장에 뚜렷한 방향이 없을 때는 관망한다.&lt;/p&gt;&#xA;&lt;p&gt;핵심 철학은 단순하다.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;과매도 구간에서 매수&lt;/strong&gt;: 시장이 충분히 공포에 빠졌을 때만 진입한다. 성급한 매수는 하지 않는다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;추세 전환에서 매도&lt;/strong&gt;: 추세가 꺾이는 신호가 나오면 최적의 타이밍을 탐색하여 청산한다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;온체인 데이터 활용&lt;/strong&gt;: 가격 차트뿐 아니라 거래소 잔고, 대형 투자자 동향, 채굴자 수익성 등 블록체인 위의 데이터를 함께 분석한다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;감정 개입 제로&lt;/strong&gt;: 모든 판단은 사전에 정의된 조건으로 이루어진다. FOMO도, 패닉셀도 없다.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;5년간-백테스트-성과&#34;&gt;5년간 백테스트 성과&lt;/h2&gt;&#xA;&lt;p&gt;2021년 2월부터 2026년 3월까지, 약 61개월간의 백테스트 결과다.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Abouts on 큐비랩 — 자동매매 시스템의 시장 분석</title><link>https://qblab.kr/about/</link><description>Recent content in Abouts on 큐비랩 — 자동매매 시스템의 시장 분석</description><generator>Hugo</generator><language>ko</language><lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://qblab.kr/about/index.xml" rel="self" type="application/rss+xml"/><item><title>큐비랩 자동매매 시스템 — 5년간의 백테스트 성과 공개</title><link>https://qblab.kr/about/qlab-intro/</link><pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate><guid>https://qblab.kr/about/qlab-intro/</guid><description>&lt;p&gt;비트코인 시장에서 감정을 배제하고 데이터로만 매매한다면 어떤 결과가 나올까? 큐비랩은 이 질문에 답하기 위해 자동매매 시스템을 직접 개발하고, 실제로 운용하고 있다. 오늘은 이 시스템의 5년간 백테스트 성과를 공개한다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="어떤-시스템인가"&gt;어떤 시스템인가&lt;/h2&gt;
+&lt;p&gt;큐비랩의 자동매매 시스템은 비트코인 선물(바이낸스)에서 &lt;strong&gt;롱과 숏을 자동으로 전환&lt;/strong&gt;하는 전략이다. 상승장에서는 롱, 하락장에서는 숏으로 포지션을 바꾸며, 시장에 뚜렷한 방향이 없을 때는 관망한다.&lt;/p&gt;
+&lt;p&gt;핵심 철학은 단순하다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;과매도 구간에서 매수&lt;/strong&gt;: 시장이 충분히 공포에 빠졌을 때만 진입한다. 성급한 매수는 하지 않는다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;추세 전환에서 매도&lt;/strong&gt;: 추세가 꺾이는 신호가 나오면 최적의 타이밍을 탐색하여 청산한다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;온체인 데이터 활용&lt;/strong&gt;: 가격 차트뿐 아니라 거래소 잔고, 대형 투자자 동향, 채굴자 수익성 등 블록체인 위의 데이터를 함께 분석한다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;감정 개입 제로&lt;/strong&gt;: 모든 판단은 사전에 정의된 조건으로 이루어진다. FOMO도, 패닉셀도 없다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="5년간-백테스트-성과"&gt;5년간 백테스트 성과&lt;/h2&gt;
+&lt;p&gt;2021년 2월부터 2026년 3월까지, 약 61개월간의 백테스트 결과다.&lt;/p&gt;</description></item></channel></rss>
