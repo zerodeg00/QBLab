@@ -10,6 +10,15 @@
   </div>
   {{ end }}
 
+  {{/* 검색 위젯 */}}
+  <div class="sidebar-widget sidebar-search">
+    <div class="search-input-wrap">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="search-input" class="search-input" placeholder="검색어를 입력하세요" autocomplete="off">
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+
   {{/* 카테고리 위젯 */}}
   <div class="sidebar-widget sidebar-categories">
     <h4 class="sidebar-widget-title">카테고리</h4>
