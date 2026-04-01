@@ -5,53 +5,47 @@
   <p class="hero-desc">{{ .Site.Params.homeInfoParams.Content }}</p>
 </section>
 
-<!-- Summary Cards (3 columns) -->
-<section class="home-section">
-  <div class="summary-grid">
-    {{ with index (where .Site.RegularPages "Section" "about") 0 }}
-    <div class="summary-card-wrapper">
-      <h2 class="section-title">소개</h2>
-      <a href="{{ .RelPermalink }}" class="summary-card">
-        <p class="summary-card-stat">5년 백테스트 · 승률 79% · MDD 27%</p>
-        <p class="summary-card-desc">{{ .Description }}</p>
-        <span class="summary-card-link">자세히 보기 &rarr;</span>
-      </a>
-    </div>
-    {{ end }}
-    {{ with index (where .Site.RegularPages "Section" "trades") 0 }}
-    <div class="summary-card-wrapper">
-      <h2 class="section-title">매매내역</h2>
-      <a href="{{ .RelPermalink }}" class="summary-card">
-        <p class="summary-card-stat">2026년 선물 거래 · 승률 86% · 누적 +18.27%</p>
-        <p class="summary-card-desc">{{ .Description }}</p>
-        <span class="summary-card-link">자세히 보기 &rarr;</span>
-      </a>
-    </div>
-    {{ end }}
-    {{ with index (where .Site.RegularPages "Section" "monthly") 0 }}
-    <div class="summary-card-wrapper">
-      <h2 class="section-title">월간 레포트</h2>
-      <a href="{{ .RelPermalink }}" class="summary-card">
-        <p class="summary-card-stat">{{ .Title }}</p>
-        <p class="summary-card-desc">{{ .Description }}</p>
-        <span class="summary-card-link">자세히 보기 &rarr;</span>
-      </a>
-    </div>
-    {{ end }}
-  </div>
-</section>
+{{ $posts := .Site.RegularPages }}
 
-<!-- Daily Report -->
-{{ $posts := where .Site.RegularPages "Section" "posts" }}
+<!-- Featured Post (최신 1개) -->
+{{ with index $posts 0 }}
+<section class="home-section">
+  <a href="{{ .RelPermalink }}" class="featured-post">
+    {{ with .Params.cover }}
+    <div class="featured-thumb">
+      <img src="{{ . | relURL }}" alt="" loading="lazy">
+    </div>
+    {{ end }}
+    <div class="featured-info">
+      <span class="featured-badge">NEW</span>
+      <h2 class="featured-title">{{ .Title }}</h2>
+      {{ with .Description }}<p class="featured-desc">{{ . }}</p>{{ end }}
+      <div class="featured-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        {{ with .Params.author }}<span>· {{ . }}</span>{{ end }}
+        <span>· {{ .ReadingTime }}분</span>
+      </div>
+      {{ with .Params.tags }}
+      <div class="featured-tags">
+        {{ range first 5 . }}<span class="tag">#{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </a>
+</section>
+{{ end }}
+
+<!-- Latest Posts (2번째부터) -->
+{{ $rest := after 1 $posts }}
 <section class="home-section">
   <div class="section-header">
-    <h2 class="section-title">데일리 레포트</h2>
-    {{ if gt (len $posts) 6 }}
+    <h2 class="section-title">최신 글</h2>
+    {{ if gt (len $rest) 9 }}
     <a href="/posts/" class="btn-more">더보기 &rarr;</a>
     {{ end }}
   </div>
   <div class="briefing-grid">
-    {{ range first 6 $posts }}
+    {{ range first 9 $rest }}
     <a href="{{ .RelPermalink }}" class="briefing-card">
       {{ with .Params.cover }}
       <div class="briefing-thumb">

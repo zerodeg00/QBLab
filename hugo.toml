@@ -28,6 +28,11 @@ paginate = 12
     name = 'github'
     url = 'https://github.com/zerodeg00'
 
+[params.sidebar]
+  avatar = '/images/profile.png'
+  nickname = '비트노마드'
+  bio = '비트코인 자동매매로 경제적 자유를 이루고 싶은 비트노마드입니다.'
+
 [params.cover]
   hidden = false
   hiddenInList = false

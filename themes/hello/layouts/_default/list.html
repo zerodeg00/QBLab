@@ -8,35 +8,28 @@
   <h1 class="list-title">{{ .Title }}</h1>
   {{ end }}
 
-  <div class="post-list">
+  <div class="post-list-horizontal">
     {{ range .Paginator.Pages }}
-    <article class="post-item">
-      <a href="{{ .Permalink }}" class="post-link">
-        {{/* 썸네일: cover → 본문 첫 이미지 → 없으면 숨김 */}}
-        {{ if .Params.cover }}
-        <div class="post-thumb">
-          <img src="{{ .Params.cover | relURL }}" alt="" loading="lazy">
+    <article class="post-item-h">
+      <a href="{{ .Permalink }}" class="post-link-h">
+        {{ with .Params.cover }}
+        <div class="post-thumb-h">
+          <img src="{{ . | relURL }}" alt="" loading="lazy">
         </div>
-        {{ else }}
-          {{ $imgs := findRE `<img[^>]+src="([^"]+)"` .Content 1 }}
-          {{ with $imgs }}
-          {{ $src := index . 0 }}
-          {{ $src = index (findRE `src="([^"]+)"` $src 1) 0 }}
-          {{ $src = strings.TrimPrefix `src="` $src }}
-          {{ $src = strings.TrimSuffix `"` $src }}
-          <div class="post-thumb">
-            <img src="{{ $src }}" alt="" loading="lazy">
+        {{ end }}
+        <div class="post-info-h">
+          <h2 class="post-title-h">{{ .Title }}</h2>
+          {{ with .Description }}<p class="post-desc-h">{{ . }}</p>{{ end }}
+          <div class="post-meta-h">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+            {{ with .Params.author }}<span>· {{ . }}</span>{{ end }}
+            <span>· {{ .ReadingTime }}분</span>
+          </div>
+          {{ with .Params.tags }}
+          <div class="post-tags-h">
+            {{ range first 5 . }}<span class="tag">#{{ . }}</span>{{ end }}
           </div>
           {{ end }}
-        {{ end }}
-        <div class="post-meta">
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-
-        </div>
-        <h2 class="post-title">{{ .Title }}</h2>
-        {{ with .Description }}<p class="post-desc">{{ . }}</p>{{ end }}
-        <div class="post-tags">
-          {{ range .Params.tags }}<span class="tag">#{{ . }}</span>{{ end }}
         </div>
       </a>
     </article>

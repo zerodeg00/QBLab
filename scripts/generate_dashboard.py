@@ -106,18 +106,14 @@ def generate_dashboard(btc_price, btc_change, position, fear_greed, output_path)
   <line x1="80" y1="590" x2="{W - 80}" y2="590"
         stroke="{BORDER}" stroke-width="2"/>
 
-  <!-- 세로 구분선 -->
-  <line x1="{mid_x}" y1="630" x2="{mid_x}" y2="{H - 60}"
-        stroke="{BORDER}" stroke-width="2"/>
-
-  <!-- 포지션 -->
-  <text x="{mid_x // 2}" y="780" text-anchor="middle"
+  <!-- 포지션 (중앙) -->
+  <text x="{mid_x}" y="720" text-anchor="middle"
         font-size="72" font-weight="700" fill="{pos_color}">
     {pos_label}
   </text>
 
-  <!-- 공포지수 -->
-  <text x="{mid_x + mid_x // 2}" y="780" text-anchor="middle"
+  <!-- 공포지수 (중앙) -->
+  <text x="{mid_x}" y="850" text-anchor="middle"
         font-size="72" font-weight="700" fill="{TEXT_BLACK}">
     {fear_label}
   </text>
@@ -164,14 +160,12 @@ def generate_dashboard(btc_price, btc_change, position, fear_greed, output_path)
 
         ly = 1140
         draw.line([(160, ly), (W * 2 - 160, ly)], fill=BORDER, width=4)
-        draw.line([(W, ly + 60), (W, H * 2 - 120)], fill=BORDER, width=4)
 
-        by = 1360
-        pb = draw.textbbox((0, 0), pos_label, font=fp_bottom)
-        draw.text(((W - (pb[2] - pb[0])) // 2, by), pos_label,
+        # 포지션 (중앙)
+        draw.text((cx(pos_label, fp_bottom), 1240), pos_label,
                   fill=pos_color, font=fp_bottom)
-        fb = draw.textbbox((0, 0), fear_label, font=fp_bottom)
-        draw.text((W + (W - (fb[2] - fb[0])) // 2, by), fear_label,
+        # 공포지수 (중앙)
+        draw.text((cx(fear_label, fp_bottom), 1500), fear_label,
                   fill=TEXT_BLACK, font=fp_bottom)
 
         img = img.resize((W, H), Image.LANCZOS)
