@@ -12,11 +12,9 @@
     {{ range .Paginator.Pages }}
     <article class="post-item-h">
       <a href="{{ .Permalink }}" class="post-link-h">
-        {{ with .Params.cover }}
-        <div class="post-thumb-h">
-          <img src="{{ . | relURL }}" alt="" loading="lazy">
+        <div class="post-thumb-h{{ if not .Params.cover }} no-cover{{ end }}">
+          <img src="{{ with .Params.cover }}{{ . | relURL }}{{ else }}{{ "logo.png" | relURL }}{{ end }}" alt="" loading="lazy">
         </div>
-        {{ end }}
         <div class="post-info-h">
           <h2 class="post-title-h">{{ .Title }}</h2>
           {{ with .Description }}<p class="post-desc-h">{{ . }}</p>{{ end }}

@@ -1,6 +1,6 @@
 baseURL = 'https://qblab.kr/'
 languageCode = 'ko'
-title = '큐비랩 — 자동매매 시스템의 시장 분석'
+title = '큐비랩 — 비트노마드의 투자일지'
 theme = 'hello'
 paginate = 12
 [services]
@@ -9,7 +9,7 @@ paginate = 12
 
 [params]
   author = '큐비랩'
-  description = '자동매매 시스템을 직접 개발하고 운용하며, 비트코인 시장 분석과 트레이딩 인사이트를 공유합니다.'
+  description = '비트코인 자동매매 시스템을 직접 개발하고 운용하는 비트노마드의 투자일지. 매일 시장 분석과 실전 트레이딩 기록을 공유합니다.'
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
@@ -22,7 +22,7 @@ paginate = 12
 
   [params.homeInfoParams]
     Title = '기록으로 만들어가는 경제적 자유'
-    Content = '자동매매 시스템을 직접 개발하고 운용하며, 비트코인 시장 분석과 트레이딩 인사이트를 공유합니다.'
+    Content = '비트코인 자동매매 시스템을 직접 개발하고 운용하는 비트노마드의 투자일지. 매일 시장 분석과 실전 트레이딩 기록을 공유합니다.'
 
   [[params.socialIcons]]
     name = 'github'

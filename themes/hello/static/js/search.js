@@ -132,9 +132,9 @@ function highlightText(text, query) {
       var tags = (item.tags || []).slice(0, 5).map(function (t) {
         return '<span class="tag">#' + t + '</span>';
       }).join('');
-      var thumb = item.cover
-        ? '<div class="post-thumb-h"><img src="' + item.cover + '" alt="" loading="lazy"></div>'
-        : '';
+      var thumbSrc = item.cover || '/logo.png';
+      var noCover = item.cover ? '' : ' no-cover';
+      var thumb = '<div class="post-thumb-h' + noCover + '"><img src="' + thumbSrc + '" alt="" loading="lazy"></div>';
       return '<article class="post-item-h"><a href="' + item.url + '" class="post-link-h">' +
         thumb +
         '<div class="post-info-h">' +

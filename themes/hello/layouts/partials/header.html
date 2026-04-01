@@ -2,7 +2,10 @@
   <div class="header-inner">
     <a href="{{ .Site.BaseURL }}" class="site-logo">
       <img src="{{ "logo.png" | relURL }}" alt="{{ .Site.Title }}" class="logo-img">
-      <span class="logo-text">큐비랩</span>
+      <span class="logo-text-wrap">
+        <span class="logo-text">큐비랩</span>
+        <span class="logo-sub">비트노마드의 투자일지</span>
+      </span>
     </a>
     <nav class="site-nav">
       {{ range .Site.Menus.main }}

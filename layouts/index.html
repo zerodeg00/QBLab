@@ -11,11 +11,9 @@
 {{ with index $posts 0 }}
 <section class="home-section">
   <a href="{{ .RelPermalink }}" class="featured-post">
-    {{ with .Params.cover }}
-    <div class="featured-thumb">
-      <img src="{{ . | relURL }}" alt="" loading="lazy">
+    <div class="featured-thumb{{ if not .Params.cover }} no-cover{{ end }}">
+      <img src="{{ with .Params.cover }}{{ . | relURL }}{{ else }}{{ "logo.png" | relURL }}{{ end }}" alt="" loading="lazy">
     </div>
-    {{ end }}
     <div class="featured-info">
       <span class="featured-badge">NEW</span>
       <h2 class="featured-title">{{ .Title }}</h2>
@@ -41,7 +39,7 @@
   <div class="section-header">
     <h2 class="section-title">최신 글</h2>
     {{ if gt (len $rest) 9 }}
-    <a href="/posts/" class="btn-more">더보기 &rarr;</a>
+    <a href="/search/" class="btn-more">더보기 &rarr;</a>
     {{ end }}
   </div>
   <div class="briefing-grid">

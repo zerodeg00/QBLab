@@ -23,6 +23,9 @@
   <div class="sidebar-widget sidebar-categories">
     <h4 class="sidebar-widget-title">카테고리</h4>
     <ul class="sidebar-category-list">
+      <li>
+        <a href="/search/"{{ if eq .RelPermalink "/search/" }} class="active"{{ end }}>전체보기</a>
+      </li>
       {{ range .Site.Menus.main }}
       {{ if ne .URL "/" }}
       <li>
