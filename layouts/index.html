@@ -5,7 +5,7 @@
   <p class="hero-desc">{{ .Site.Params.homeInfoParams.Content }}</p>
 </section>
 
-<!-- Summary Cards -->
+<!-- Summary Cards (3 columns) -->
 <section class="home-section">
   <div class="summary-grid">
     {{ with index (where .Site.RegularPages "Section" "about") 0 }}
@@ -28,34 +28,18 @@
       </a>
     </div>
     {{ end }}
-  </div>
-</section>
-
-<!-- Monthly Report -->
-{{ $monthly := where .Site.RegularPages "Section" "monthly" }}
-{{ if $monthly }}
-<section class="home-section">
-  <div class="section-header">
-    <h2 class="section-title">월간 레포트</h2>
-    {{ if gt (len $monthly) 3 }}
-    <a href="/monthly/" class="btn-more">더보기 &rarr;</a>
-    {{ end }}
-  </div>
-  <div class="briefing-grid">
-    {{ range first 3 $monthly }}
-    <a href="{{ .RelPermalink }}" class="briefing-card">
-      {{ with .Params.cover }}
-      <div class="briefing-thumb">
-        <img src="{{ . | relURL }}" alt="" loading="lazy">
-      </div>
-      {{ end }}
-      <time class="briefing-date">{{ .Date.Format "2006-01-02" }}</time>
-      <h3 class="briefing-title">{{ .Title }}</h3>
-    </a>
+    {{ with index (where .Site.RegularPages "Section" "monthly") 0 }}
+    <div class="summary-card-wrapper">
+      <h2 class="section-title">월간 레포트</h2>
+      <a href="{{ .RelPermalink }}" class="summary-card">
+        <p class="summary-card-stat">{{ .Title }}</p>
+        <p class="summary-card-desc">{{ .Description }}</p>
+        <span class="summary-card-link">자세히 보기 &rarr;</span>
+      </a>
+    </div>
     {{ end }}
   </div>
 </section>
-{{ end }}
 
 <!-- Daily Report -->
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
