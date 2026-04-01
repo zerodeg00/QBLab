@@ -1,0 +1,41 @@
+<aside class="sidebar">
+  {{/* 프로필 위젯 */}}
+  {{ with .Site.Params.sidebar }}
+  <div class="sidebar-widget sidebar-profile">
+    <div class="profile-avatar">
+      <img src="{{ .avatar | relURL }}" alt="{{ .nickname }}" loading="lazy">
+    </div>
+    <h3 class="profile-nickname">{{ .nickname }}</h3>
+    <p class="profile-bio">{{ .bio }}</p>
+  </div>
+  {{ end }}
+
+  {{/* 카테고리 위젯 */}}
+  <div class="sidebar-widget sidebar-categories">
+    <h4 class="sidebar-widget-title">카테고리</h4>
+    <ul class="sidebar-category-list">
+      {{ range .Site.Menus.main }}
+      {{ if ne .URL "/" }}
+      <li>
+        <a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} class="active"{{ end }}>{{ .Name }}</a>
+      </li>
+      {{ end }}
+      {{ end }}
+    </ul>
+  </div>
+
+  {{/* 최근 글 위젯 */}}
+  <div class="sidebar-widget sidebar-recent">
+    <h4 class="sidebar-widget-title">최근 글</h4>
+    <ul class="sidebar-recent-list">
+      {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
+      <li>
+        <a href="{{ .RelPermalink }}">
+          <span class="recent-title">{{ .Title }}</span>
+          <time class="recent-date">{{ .Date.Format "01-02" }}</time>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</aside>

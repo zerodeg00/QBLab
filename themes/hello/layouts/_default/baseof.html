@@ -67,12 +67,15 @@
   </script>
   {{ end }}
 </head>
-<body{{ if .IsHome }} class="is-home"{{ else if and .IsSection (eq .Section "posts") }} class="is-wide"{{ end }}>
+<body class="{{ if .IsHome }}is-home has-sidebar{{ else if .IsPage }}{{ else }}is-wide has-sidebar{{ end }}">
   <div class="site-wrapper">
     {{ partial "header.html" . }}
-    <main class="site-main">
-      {{ block "main" . }}{{ end }}
-    </main>
+    <div class="content-wrapper">
+      <main class="site-main">
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ if not .IsPage }}{{ partial "sidebar.html" . }}{{ end }}
+    </div>
     {{ partial "footer.html" . }}
   </div>
   {{/* Kakao SDK (공유 버튼용) */}}
