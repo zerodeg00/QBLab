@@ -624,26 +624,48 @@ img {
 
 /* --- Hero Banner --- */
 .hero-banner {
+  position: relative;
   text-align: center;
-  padding: 3.5rem 2rem;
+  padding: 2rem;
   margin-bottom: 1rem;
-  background: #f8f8fa;
   border-radius: 12px;
-  border: 1px solid #e6e6e9;
+  overflow: hidden;
+  background: url('/images/hero-bg.png') center/cover no-repeat;
+  aspect-ratio: 2012 / 781;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 16, 20, 0.55);
+  border-radius: 12px;
+}
+
+.hero-title,
+.hero-desc {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #1e1f21;
+  color: #fff;
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
 .hero-desc {
   font-size: 1rem;
-  color: #66666e;
+  color: rgba(255,255,255,0.88);
   line-height: 1.7;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.25);
 }
 
 /* --- Home Section --- */
@@ -861,7 +883,9 @@ img {
 
   /* Homepage responsive */
   .hero-banner {
-    padding: 2.5rem 1.25rem;
+    padding: 2rem 1.25rem;
+    aspect-ratio: auto;
+    min-height: 180px;
   }
 
   .hero-title {
