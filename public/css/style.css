@@ -200,6 +200,44 @@ img {
   background: #e6e6e9;
 }
 
+/* --- Breadcrumb --- */
+.breadcrumb {
+  margin-bottom: 1rem;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
+  color: #9999a1;
+}
+
+.breadcrumb li + li::before {
+  content: '›';
+  margin: 0 0.4rem;
+  color: #ccc;
+}
+
+.breadcrumb a {
+  color: #9999a1;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: #5a6ded;
+}
+
+.breadcrumb li:last-child {
+  color: #66666e;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 300px;
+}
+
 /* --- Single Post --- */
 .post-single {
   padding-top: 1rem;
@@ -391,6 +429,83 @@ img {
 
 .post-content tr:hover td {
   background: #f8f8fa;
+}
+
+/* --- Reading Time --- */
+.reading-time {
+  color: #9999a1;
+}
+
+/* --- Share Buttons --- */
+.share-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+  padding: 1.25rem;
+  background: #f8f8fa;
+  border-radius: 8px;
+  border: 1px solid #e6e6e9;
+}
+
+.share-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #66666e;
+  white-space: nowrap;
+}
+
+.share-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e6e6e9;
+  border-radius: 8px;
+  background: #fff;
+  color: #66666e;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+  font: inherit;
+  text-decoration: none;
+}
+
+.share-btn:hover {
+  border-color: #5a6ded;
+  color: #5a6ded;
+}
+
+.share-x:hover { color: #1d9bf0; border-color: #1d9bf0; }
+.share-facebook:hover { color: #1877f2; border-color: #1877f2; }
+.share-kakao:hover { color: #fee500; border-color: #fee500; background: #3c1e1e; }
+.share-copy:hover { color: #5a6ded; border-color: #5a6ded; }
+
+.share-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(1rem);
+  background: #1e1f21;
+  color: #fff;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+.share-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* --- Post Navigation --- */
@@ -733,6 +848,15 @@ img {
 
   .nav-next {
     text-align: left;
+  }
+
+  .share-buttons {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .breadcrumb li:last-child {
+    max-width: 200px;
   }
 
   /* Homepage responsive */
