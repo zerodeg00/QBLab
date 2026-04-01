@@ -90,12 +90,25 @@ img {
 
 .logo-img {
   width: auto;
-  height: 48px;
+  height: 130px;
   border-radius: 4px;
+}
+
+.logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
 }
 
 .logo-text {
   transition: color 0.2s;
+  font-size: 2rem;
+}
+
+.logo-sub {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #9999a1;
 }
 
 .site-logo:hover .logo-text {
@@ -231,7 +244,7 @@ img {
 .post-thumb-h {
   flex-shrink: 0;
   width: 200px;
-  aspect-ratio: 16 / 9;
+  height: 150px;
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid #e6e6e9;
@@ -244,12 +257,23 @@ img {
   display: block;
 }
 
+.post-thumb-h.no-cover {
+  background: #f8f8fa;
+}
+
+.post-thumb-h.no-cover img {
+  object-fit: contain;
+  padding: 1rem;
+}
+
 .post-info-h {
   flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 150px;
+  overflow: hidden;
 }
 
 .post-title-h {
@@ -803,6 +827,15 @@ img {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.featured-thumb.no-cover {
+  background: #f8f8fa;
+}
+
+.featured-thumb.no-cover img {
+  object-fit: contain;
+  padding: 1rem;
 }
 
 .featured-info {
