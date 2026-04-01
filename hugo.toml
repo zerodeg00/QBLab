@@ -21,7 +21,7 @@ paginate = 12
   kakaoJsKey = '49818f3b6047e6d3f00605a784c70a12'
 
   [params.homeInfoParams]
-    Title = '기록으로 만들어가는 경제적 자유'
+    Title = '기록으로 만드는 경제적 자유'
     Content = '비트코인 자동매매 시스템을 직접 개발하고 운용하는 비트노마드의 투자일지.<br>매일 시장 분석과 실전 트레이딩 기록을 공유합니다.'
 
   [[params.socialIcons]]
