@@ -50,11 +50,9 @@ def generate_monthly_dashboard(year, month, monthly_roi, cumulative_roi, output_
 
     mid_x = W // 2
 
-    # 하단 레이블+수치 가로 배치 좌표
-    label_x = mid_x - 30   # 레이블 오른쪽 정렬
-    value_x = mid_x + 30   # 수치 왼쪽 정렬
-    row1_y = 700
-    row2_y = 840
+    # 하단: 월간 +X% | 누적 +X% 한 줄 배치
+    bottom_y = 740
+    sep_x = mid_x  # 구분자 위치
 
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">
   <defs>
@@ -83,23 +81,27 @@ def generate_monthly_dashboard(year, month, monthly_roi, cumulative_roi, output_
   <line x1="80" y1="520" x2="{W - 80}" y2="520"
         stroke="{BORDER}" stroke-width="2"/>
 
-  <!-- 월간 수익률 (레이블 + 수치 가로 배치) -->
-  <text x="{label_x}" y="{row1_y}" text-anchor="end"
-        font-size="72" font-weight="600" fill="{TEXT_GRAY}">
+  <!-- 월간 (좌) -->
+  <text x="{sep_x - 60}" y="{bottom_y}" text-anchor="end"
+        font-size="68" font-weight="600" fill="{TEXT_GRAY}">
     월간
   </text>
-  <text x="{value_x}" y="{row1_y}" text-anchor="start"
-        font-size="72" font-weight="700" fill="{monthly_color}">
+  <text x="{sep_x - 60}" y="{bottom_y + 90}" text-anchor="end"
+        font-size="68" font-weight="700" fill="{monthly_color}">
     {monthly_roi_str}
   </text>
 
-  <!-- 누적 수익률 (레이블 + 수치 가로 배치) -->
-  <text x="{label_x}" y="{row2_y}" text-anchor="end"
-        font-size="72" font-weight="600" fill="{TEXT_GRAY}">
+  <!-- 세로 구분자 -->
+  <line x1="{sep_x}" y1="580" x2="{sep_x}" y2="{H - 80}"
+        stroke="{BORDER}" stroke-width="2"/>
+
+  <!-- 누적 (우) -->
+  <text x="{sep_x + 60}" y="{bottom_y}" text-anchor="start"
+        font-size="68" font-weight="600" fill="{TEXT_GRAY}">
     누적
   </text>
-  <text x="{value_x}" y="{row2_y}" text-anchor="start"
-        font-size="72" font-weight="700" fill="{cumulative_color}">
+  <text x="{sep_x + 60}" y="{bottom_y + 90}" text-anchor="start"
+        font-size="68" font-weight="700" fill="{cumulative_color}">
     {cumulative_roi_str}
   </text>
 </svg>'''
@@ -130,8 +132,8 @@ def generate_monthly_dashboard(year, month, monthly_roi, cumulative_roi, output_
 
         fp_date = ImageFont.truetype(os.path.join(FONT_DIR, "Pretendard-SemiBold.otf"), 144)
         fp_title = ImageFont.truetype(os.path.join(FONT_DIR, "Pretendard-ExtraBold.otf"), 240)
-        fp_row = ImageFont.truetype(os.path.join(FONT_DIR, "Pretendard-SemiBold.otf"), 144)
-        fp_row_val = ImageFont.truetype(os.path.join(FONT_DIR, "Pretendard-Bold.otf"), 144)
+        fp_label = ImageFont.truetype(os.path.join(FONT_DIR, "Pretendard-SemiBold.otf"), 136)
+        fp_val = ImageFont.truetype(os.path.join(FONT_DIR, "Pretendard-Bold.otf"), 136)
 
         def cx(text, font):
             bb = draw.textbbox((0, 0), text, font=font)
@@ -152,27 +154,26 @@ def generate_monthly_dashboard(year, month, monthly_roi, cumulative_roi, output_
         # 구분선
         ly = 1040
         draw.line([(160, ly), (W * 2 - 160, ly)], fill=BORDER, width=4)
+        # 세로 구분선
+        draw.line([(W, ly + 80), (W, H * 2 - 160)], fill=BORDER, width=4)
 
-        # 레이블+수치 가로 배치 (중앙 정렬)
-        gap = 60  # 레이블-수치 간격
-        label_x_anchor = W - gap  # 레이블 오른쪽 끝
-        value_x_anchor = W + gap  # 수치 왼쪽 시작
+        sep_gap = 120  # 세로 구분선과의 간격
 
-        # 월간 수익률
-        r1_y = 1200
+        # 월간 (좌: 레이블 + 수치 세로)
+        lbl_y = 1280
+        val_y = 1460
         lbl1 = "월간"
-        draw.text((label_x_anchor - tw(lbl1, fp_row), r1_y), lbl1,
-                  fill=TEXT_GRAY, font=fp_row)
-        draw.text((value_x_anchor, r1_y), monthly_roi_str,
-                  fill=monthly_color, font=fp_row_val)
+        draw.text((W - sep_gap - tw(lbl1, fp_label), lbl_y), lbl1,
+                  fill=TEXT_GRAY, font=fp_label)
+        draw.text((W - sep_gap - tw(monthly_roi_str, fp_val), val_y), monthly_roi_str,
+                  fill=monthly_color, font=fp_val)
 
-        # 누적 수익률
-        r2_y = 1480
+        # 누적 (우: 레이블 + 수치 세로)
         lbl2 = "누적"
-        draw.text((label_x_anchor - tw(lbl2, fp_row), r2_y), lbl2,
-                  fill=TEXT_GRAY, font=fp_row)
-        draw.text((value_x_anchor, r2_y), cumulative_roi_str,
-                  fill=cumulative_color, font=fp_row_val)
+        draw.text((W + sep_gap, lbl_y), lbl2,
+                  fill=TEXT_GRAY, font=fp_label)
+        draw.text((W + sep_gap, val_y), cumulative_roi_str,
+                  fill=cumulative_color, font=fp_val)
 
         img = img.resize((W, H), Image.LANCZOS)
         img.save(png_path, "PNG", optimize=True)
