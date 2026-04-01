@@ -18,7 +18,7 @@
   <!-- 제목 (중앙) -->
   <text x="900" y="400" text-anchor="middle"
         font-size="120" font-weight="800" fill="#1E1F21">
-    월간 투자 레포트
+    월간 레포트
   </text>
 
   <!-- 구분선 -->

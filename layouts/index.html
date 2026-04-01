@@ -31,11 +31,37 @@
   </div>
 </section>
 
-<!-- Daily Briefing -->
+<!-- Monthly Report -->
+{{ $monthly := where .Site.RegularPages "Section" "monthly" }}
+{{ if $monthly }}
+<section class="home-section">
+  <div class="section-header">
+    <h2 class="section-title">월간 레포트</h2>
+    {{ if gt (len $monthly) 3 }}
+    <a href="/monthly/" class="btn-more">더보기 &rarr;</a>
+    {{ end }}
+  </div>
+  <div class="briefing-grid">
+    {{ range first 3 $monthly }}
+    <a href="{{ .RelPermalink }}" class="briefing-card">
+      {{ with .Params.cover }}
+      <div class="briefing-thumb">
+        <img src="{{ . | relURL }}" alt="" loading="lazy">
+      </div>
+      {{ end }}
+      <time class="briefing-date">{{ .Date.Format "2006-01-02" }}</time>
+      <h3 class="briefing-title">{{ .Title }}</h3>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+<!-- Daily Report -->
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
 <section class="home-section">
   <div class="section-header">
-    <h2 class="section-title">데일리 브리핑</h2>
+    <h2 class="section-title">데일리 레포트</h2>
     {{ if gt (len $posts) 6 }}
     <a href="/posts/" class="btn-more">더보기 &rarr;</a>
     {{ end }}

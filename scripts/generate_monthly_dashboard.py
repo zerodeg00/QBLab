@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""큐비랩 월간 투자 레포트 대시보드 이미지 생성 (SVG + PNG)
+"""큐비랩 월간 레포트 대시보드 이미지 생성 (SVG + PNG)
 
 Usage:
     python generate_monthly_dashboard.py --year 26 --month 3 \
@@ -36,7 +36,7 @@ def generate_monthly_dashboard(year, month, monthly_roi, cumulative_roi, output_
     cumulative_roi_str, cumulative_positive = _normalize_roi(cumulative_roi)
 
     date_label = f"{year}년 {month}월"
-    title_label = "월간 투자 레포트"
+    title_label = "월간 레포트"
 
     # === 색상 (데일리 대시보드와 동일) ===
     GREEN = "#10B981"
@@ -183,7 +183,7 @@ def generate_monthly_dashboard(year, month, monthly_roi, cumulative_roi, output_
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="큐비랩 월간 투자 레포트 대시보드 이미지 생성")
+    parser = argparse.ArgumentParser(description="큐비랩 월간 레포트 대시보드 이미지 생성")
     parser.add_argument("--year", required=True, help="연도 (2자리, 예: '26')")
     parser.add_argument("--month", required=True, help="월 (예: '3')")
     parser.add_argument("--monthly-roi", required=True, help="월간 수익률 (예: '+15.1%%')")
