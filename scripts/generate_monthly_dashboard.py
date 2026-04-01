@@ -67,7 +67,7 @@ def generate_monthly_dashboard(year, month, monthly_roi, cumulative_roi, output_
 
   <!-- 날짜 (상단) -->
   <text x="{mid_x}" y="200" text-anchor="middle"
-        font-size="72" font-weight="600" fill="{TEXT_GRAY}">
+        font-size="88" font-weight="700" fill="{TEXT_BLACK}">
     {date_label}
   </text>
 
@@ -130,7 +130,7 @@ def generate_monthly_dashboard(year, month, monthly_roi, cumulative_roi, output_
         img = Image.new("RGB", (W * 2, H * 2), "#FFFFFF")
         draw = ImageDraw.Draw(img)
 
-        fp_date = ImageFont.truetype(os.path.join(FONT_DIR, "Pretendard-SemiBold.otf"), 144)
+        fp_date = ImageFont.truetype(os.path.join(FONT_DIR, "Pretendard-Bold.otf"), 176)
         fp_title = ImageFont.truetype(os.path.join(FONT_DIR, "Pretendard-ExtraBold.otf"), 240)
         fp_label = ImageFont.truetype(os.path.join(FONT_DIR, "Pretendard-SemiBold.otf"), 136)
         fp_val = ImageFont.truetype(os.path.join(FONT_DIR, "Pretendard-Bold.otf"), 136)
@@ -144,8 +144,8 @@ def generate_monthly_dashboard(year, month, monthly_roi, cumulative_roi, output_
             return bb[2] - bb[0]
 
         # 날짜
-        draw.text((cx(date_label, fp_date), 260), date_label,
-                  fill=TEXT_GRAY, font=fp_date)
+        draw.text((cx(date_label, fp_date), 220), date_label,
+                  fill=TEXT_BLACK, font=fp_date)
 
         # 제목
         draw.text((cx(title_label, fp_title), 560), title_label,

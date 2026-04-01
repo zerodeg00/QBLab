@@ -11,7 +11,7 @@
 
   <!-- 날짜 (상단) -->
   <text x="900" y="200" text-anchor="middle"
-        font-size="72" font-weight="600" fill="#6B7280">
+        font-size="88" font-weight="700" fill="#1E1F21">
     26년 3월
   </text>
 
