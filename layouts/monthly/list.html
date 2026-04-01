@@ -1,20 +1,26 @@
 {{ define "main" }}
-<div class="list-page list-grid">
-  <div class="section-header">
-    <h1 class="section-title">월간 레포트</h1>
-  </div>
+<div class="list-page">
+  <h1 class="list-title">월간 레포트</h1>
 
-  <div class="briefing-grid">
+  <div class="post-list">
     {{ range .Paginator.Pages }}
-    <a href="{{ .Permalink }}" class="briefing-card">
-      {{ with .Params.cover }}
-      <div class="briefing-thumb">
-        <img src="{{ . | relURL }}" alt="" loading="lazy">
-      </div>
-      {{ end }}
-      <time class="briefing-date">{{ .Date.Format "2006-01-02" }}</time>
-      <h3 class="briefing-title">{{ .Title }}</h3>
-    </a>
+    <article class="post-item">
+      <a href="{{ .Permalink }}" class="post-link">
+        {{ with .Params.cover }}
+        <div class="post-thumb">
+          <img src="{{ . | relURL }}" alt="" loading="lazy">
+        </div>
+        {{ end }}
+        <div class="post-meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        </div>
+        <h2 class="post-title">{{ .Title }}</h2>
+        {{ with .Description }}<p class="post-desc">{{ . }}</p>{{ end }}
+        <div class="post-tags">
+          {{ range .Params.tags }}<span class="tag">#{{ . }}</span>{{ end }}
+        </div>
+      </a>
+    </article>
     {{ end }}
   </div>
 
