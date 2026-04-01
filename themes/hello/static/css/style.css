@@ -633,9 +633,15 @@ img {
   gap: 1.5rem;
 }
 
+.summary-card-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .summary-card {
   display: flex;
   flex-direction: column;
+  flex: 1;
   padding: 1.5rem;
   border: 1px solid #e6e6e9;
   border-radius: 10px;
