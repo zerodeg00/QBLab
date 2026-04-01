@@ -1,11 +1,53 @@
 {{ define "main" }}
+{{/* JSON-LD Article 구조화 데이터 */}}
+{{ $desc := default .Site.Params.description .Description }}
+{{ $author := default .Site.Params.author .Params.author }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ .Title | jsonify | safeJS }},
+  "description": {{ $desc | jsonify | safeJS }},
+  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05+09:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05+09:00" }}",
+  "author": { "@type": "Person", "name": {{ $author | jsonify | safeJS }} },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ .Site.Title | jsonify | safeJS }},
+    "logo": { "@type": "ImageObject", "url": "{{ "logo.png" | absURL }}" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ .Permalink }}" }
+  {{ with .Params.cover }},"image": "{{ replace . ".svg" ".png" | absURL }}"{{ end }}
+}
+</script>
+
 <article class="post-single">
+  {{/* Breadcrumb */}}
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="{{ .Site.BaseURL }}"><span itemprop="name">홈</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      {{ with .CurrentSection }}
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="{{ .Permalink }}"><span itemprop="name">{{ .Title }}</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      {{ end }}
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">{{ .Title }}</span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
+  </nav>
+
   <header class="post-header">
     <h1 class="post-title">{{ .Title }}</h1>
     <div class="post-meta">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-
       {{ with .Params.author }}<span class="author">· {{ . }}</span>{{ end }}
+      <span class="reading-time">· {{ .ReadingTime }}분 소요</span>
     </div>
     <div class="post-tags">
       {{ range .Params.tags }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>{{ end }}
@@ -21,6 +63,69 @@
   <div class="post-content">
     {{ .Content }}
   </div>
+
+  {{/* 공유 버튼 */}}
+  <div class="share-buttons">
+    <span class="share-label">공유하기</span>
+    <div class="share-icons">
+      <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title | urlquery }}"
+         target="_blank" rel="noopener noreferrer"
+         class="share-btn share-x" aria-label="X에 공유" title="X에 공유">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"
+         target="_blank" rel="noopener noreferrer"
+         class="share-btn share-facebook" aria-label="페이스북에 공유" title="페이스북에 공유">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <button class="share-btn share-kakao" id="kakao-share" aria-label="카카오톡에 공유" title="카카오톡에 공유">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-5.523 0-10 3.582-10 8 0 2.844 1.893 5.34 4.738 6.737-.147.522-.535 1.896-.612 2.189-.097.362.133.357.28.26.115-.077 1.832-1.241 2.572-1.748.329.049.665.074 1.005.08L12 18.518c5.523 0 10-3.582 10-8s-4.477-8-10-8z"/></svg>
+      </button>
+      <button class="share-btn share-copy" id="copy-link" aria-label="링크 복사" title="링크 복사">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="share-toast" id="share-toast">링크가 복사되었습니다</div>
+
+  <script>
+  (function() {
+    var shareTitle = {{ .Title | jsonify | safeJS }};
+    var shareDesc = {{ (default .Site.Params.description .Description) | jsonify | safeJS }};
+    var shareUrl = {{ .Permalink | jsonify | safeJS }};
+    {{ $img := "logo.png" | absURL }}
+    {{ with .Params.cover }}{{ $img = replace . ".svg" ".png" | absURL }}{{ end }}
+    var shareImg = {{ $img | jsonify | safeJS }};
+
+    // 카카오톡 공유
+    document.getElementById('kakao-share').addEventListener('click', function() {
+      if (typeof Kakao !== 'undefined' && Kakao.isInitialized()) {
+        Kakao.Share.sendDefault({
+          objectType: 'feed',
+          content: {
+            title: shareTitle,
+            description: shareDesc,
+            imageUrl: shareImg,
+            link: { mobileWebUrl: shareUrl, webUrl: shareUrl }
+          }
+        });
+      } else {
+        copyToClipboard();
+      }
+    });
+
+    // 링크 복사
+    document.getElementById('copy-link').addEventListener('click', copyToClipboard);
+
+    function copyToClipboard() {
+      navigator.clipboard.writeText(shareUrl).then(function() {
+        var toast = document.getElementById('share-toast');
+        toast.classList.add('show');
+        setTimeout(function() { toast.classList.remove('show'); }, 2000);
+      });
+    }
+  })();
+  </script>
 
   <nav class="post-nav">
     {{ with .PrevInSection }}

@@ -3,6 +3,9 @@ languageCode = 'ko'
 title = '큐비랩 — 자동매매 시스템의 시장 분석'
 theme = 'hello'
 paginate = 12
+[services]
+  [services.googleAnalytics]
+    ID = 'G-TNCCE8KVLR'
 
 [params]
   author = '큐비랩'
@@ -15,6 +18,7 @@ paginate = 12
   ShowToc = false
   defaultTheme = 'auto'
   DateFormat = '2006-01-02'
+  kakaoJsKey = '49818f3b6047e6d3f00605a784c70a12'
 
   [params.homeInfoParams]
     Title = '기록으로 만들어가는 경제적 자유'
