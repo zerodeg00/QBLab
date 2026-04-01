@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="list-page">
+  <h1 class="list-title">월간 레포트</h1>
+
+  <div class="post-list">
+    {{ range .Paginator.Pages }}
+    <article class="post-item">
+      <a href="{{ .Permalink }}" class="post-link">
+        {{ with .Params.cover }}
+        <div class="post-thumb">
+          <img src="{{ . | relURL }}" alt="" loading="lazy">
+        </div>
+        {{ end }}
+        <div class="post-meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        </div>
+        <h2 class="post-title">{{ .Title }}</h2>
+        {{ with .Description }}<p class="post-desc">{{ . }}</p>{{ end }}
+        <div class="post-tags">
+          {{ range .Params.tags }}<span class="tag">#{{ . }}</span>{{ end }}
+        </div>
+      </a>
+    </article>
+    {{ end }}
+  </div>
+
+  {{ template "_internal/pagination.html" . }}
+</div>
+{{ end }}

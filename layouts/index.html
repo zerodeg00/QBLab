@@ -5,7 +5,7 @@
   <p class="hero-desc">{{ .Site.Params.homeInfoParams.Content }}</p>
 </section>
 
-<!-- Summary Cards -->
+<!-- Summary Cards (3 columns) -->
 <section class="home-section">
   <div class="summary-grid">
     {{ with index (where .Site.RegularPages "Section" "about") 0 }}
@@ -28,14 +28,24 @@
       </a>
     </div>
     {{ end }}
+    {{ with index (where .Site.RegularPages "Section" "monthly") 0 }}
+    <div class="summary-card-wrapper">
+      <h2 class="section-title">월간 레포트</h2>
+      <a href="{{ .RelPermalink }}" class="summary-card">
+        <p class="summary-card-stat">{{ .Title }}</p>
+        <p class="summary-card-desc">{{ .Description }}</p>
+        <span class="summary-card-link">자세히 보기 &rarr;</span>
+      </a>
+    </div>
+    {{ end }}
   </div>
 </section>
 
-<!-- Daily Briefing -->
+<!-- Daily Report -->
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
 <section class="home-section">
   <div class="section-header">
-    <h2 class="section-title">데일리 브리핑</h2>
+    <h2 class="section-title">데일리 레포트</h2>
     {{ if gt (len $posts) 6 }}
     <a href="/posts/" class="btn-more">더보기 &rarr;</a>
     {{ end }}

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 945" width="1800" height="945">
+  <defs>
+    <style>
+      @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+      text { font-family: 'Pretendard', sans-serif; }
+    </style>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1800" height="945" fill="#FFFFFF"/>
+
+  <!-- 날짜 (상단) -->
+  <text x="900" y="200" text-anchor="middle"
+        font-size="88" font-weight="700" fill="#1E1F21">
+    26년 3월
+  </text>
+
+  <!-- 제목 (중앙) -->
+  <text x="900" y="400" text-anchor="middle"
+        font-size="120" font-weight="800" fill="#1E1F21">
+    월간 레포트
+  </text>
+
+  <!-- 구분선 -->
+  <line x1="80" y1="520" x2="1720" y2="520"
+        stroke="#E6E6E9" stroke-width="2"/>
+
+  <!-- 월간 (좌 칸 중앙) -->
+  <text x="450" y="740" text-anchor="middle"
+        font-size="68" font-weight="600" fill="#6B7280">
+    월간
+  </text>
+  <text x="450" y="830" text-anchor="middle"
+        font-size="68" font-weight="700" fill="#10B981">
+    +15.1%
+  </text>
+
+  <!-- 세로 구분자 -->
+  <line x1="900" y1="580" x2="900" y2="865"
+        stroke="#E6E6E9" stroke-width="2"/>
+
+  <!-- 누적 (우 칸 중앙) -->
+  <text x="1350" y="740" text-anchor="middle"
+        font-size="68" font-weight="600" fill="#6B7280">
+    누적
+  </text>
+  <text x="1350" y="830" text-anchor="middle"
+        font-size="68" font-weight="700" fill="#10B981">
+    +18.3%
+  </text>
+</svg>

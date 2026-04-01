@@ -611,27 +611,37 @@ img {
   font-weight: 700;
   color: #1e1f21;
   line-height: 1.5;
-  padding: 0.25rem 1rem 0.85rem;
+  padding: 0.25rem 1rem 0;
+  margin-bottom: 0.85rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 2.7rem; /* 0.9rem × 1.5 × 2 lines */
 }
 
 .briefing-card:hover .briefing-title {
   color: #5a6ded;
 }
 
-/* --- Summary Cards (2 columns) --- */
+/* --- Summary Cards (3 columns) --- */
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+}
+
+.summary-card-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .summary-card {
   display: flex;
   flex-direction: column;
+  flex: 1;
   padding: 1.5rem;
   border: 1px solid #e6e6e9;
   border-radius: 10px;
