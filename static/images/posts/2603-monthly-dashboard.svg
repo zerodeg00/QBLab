@@ -25,12 +25,12 @@
   <line x1="80" y1="520" x2="1720" y2="520"
         stroke="#E6E6E9" stroke-width="2"/>
 
-  <!-- 월간 (좌) -->
-  <text x="840" y="740" text-anchor="end"
+  <!-- 월간 (좌 칸 중앙) -->
+  <text x="450" y="740" text-anchor="middle"
         font-size="68" font-weight="600" fill="#6B7280">
     월간
   </text>
-  <text x="840" y="830" text-anchor="end"
+  <text x="450" y="830" text-anchor="middle"
         font-size="68" font-weight="700" fill="#10B981">
     +15.1%
   </text>
@@ -39,12 +39,12 @@
   <line x1="900" y1="580" x2="900" y2="865"
         stroke="#E6E6E9" stroke-width="2"/>
 
-  <!-- 누적 (우) -->
-  <text x="960" y="740" text-anchor="start"
+  <!-- 누적 (우 칸 중앙) -->
+  <text x="1350" y="740" text-anchor="middle"
         font-size="68" font-weight="600" fill="#6B7280">
     누적
   </text>
-  <text x="960" y="830" text-anchor="start"
+  <text x="1350" y="830" text-anchor="middle"
         font-size="68" font-weight="700" fill="#10B981">
     +18.3%
   </text>

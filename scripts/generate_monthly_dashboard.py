@@ -81,12 +81,12 @@ def generate_monthly_dashboard(year, month, monthly_roi, cumulative_roi, output_
   <line x1="80" y1="520" x2="{W - 80}" y2="520"
         stroke="{BORDER}" stroke-width="2"/>
 
-  <!-- 월간 (좌) -->
-  <text x="{sep_x - 60}" y="{bottom_y}" text-anchor="end"
+  <!-- 월간 (좌 칸 중앙) -->
+  <text x="{mid_x // 2}" y="{bottom_y}" text-anchor="middle"
         font-size="68" font-weight="600" fill="{TEXT_GRAY}">
     월간
   </text>
-  <text x="{sep_x - 60}" y="{bottom_y + 90}" text-anchor="end"
+  <text x="{mid_x // 2}" y="{bottom_y + 90}" text-anchor="middle"
         font-size="68" font-weight="700" fill="{monthly_color}">
     {monthly_roi_str}
   </text>
@@ -95,12 +95,12 @@ def generate_monthly_dashboard(year, month, monthly_roi, cumulative_roi, output_
   <line x1="{sep_x}" y1="580" x2="{sep_x}" y2="{H - 80}"
         stroke="{BORDER}" stroke-width="2"/>
 
-  <!-- 누적 (우) -->
-  <text x="{sep_x + 60}" y="{bottom_y}" text-anchor="start"
+  <!-- 누적 (우 칸 중앙) -->
+  <text x="{mid_x + mid_x // 2}" y="{bottom_y}" text-anchor="middle"
         font-size="68" font-weight="600" fill="{TEXT_GRAY}">
     누적
   </text>
-  <text x="{sep_x + 60}" y="{bottom_y + 90}" text-anchor="start"
+  <text x="{mid_x + mid_x // 2}" y="{bottom_y + 90}" text-anchor="middle"
         font-size="68" font-weight="700" fill="{cumulative_color}">
     {cumulative_roi_str}
   </text>
@@ -157,22 +157,24 @@ def generate_monthly_dashboard(year, month, monthly_roi, cumulative_roi, output_
         # 세로 구분선
         draw.line([(W, ly + 80), (W, H * 2 - 160)], fill=BORDER, width=4)
 
-        sep_gap = 120  # 세로 구분선과의 간격
-
-        # 월간 (좌: 레이블 + 수치 세로)
+        # 각 칸 중앙: 좌=W/2, 우=W*3/2
+        left_cx = W // 2
+        right_cx = W + W // 2
         lbl_y = 1280
         val_y = 1460
+
+        # 월간 (좌 칸 중앙 정렬)
         lbl1 = "월간"
-        draw.text((W - sep_gap - tw(lbl1, fp_label), lbl_y), lbl1,
+        draw.text((left_cx - tw(lbl1, fp_label) // 2, lbl_y), lbl1,
                   fill=TEXT_GRAY, font=fp_label)
-        draw.text((W - sep_gap - tw(monthly_roi_str, fp_val), val_y), monthly_roi_str,
+        draw.text((left_cx - tw(monthly_roi_str, fp_val) // 2, val_y), monthly_roi_str,
                   fill=monthly_color, font=fp_val)
 
-        # 누적 (우: 레이블 + 수치 세로)
+        # 누적 (우 칸 중앙 정렬)
         lbl2 = "누적"
-        draw.text((W + sep_gap, lbl_y), lbl2,
+        draw.text((right_cx - tw(lbl2, fp_label) // 2, lbl_y), lbl2,
                   fill=TEXT_GRAY, font=fp_label)
-        draw.text((W + sep_gap, val_y), cumulative_roi_str,
+        draw.text((right_cx - tw(cumulative_roi_str, fp_val) // 2, val_y), cumulative_roi_str,
                   fill=cumulative_color, font=fp_val)
 
         img = img.resize((W, H), Image.LANCZOS)
