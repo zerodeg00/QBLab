@@ -2,7 +2,7 @@
 <!-- Hero Banner -->
 <section class="hero-banner">
   <h1 class="hero-title">{{ .Site.Params.homeInfoParams.Title }}</h1>
-  <p class="hero-desc">{{ .Site.Params.homeInfoParams.Content }}</p>
+  <p class="hero-desc">{{ .Site.Params.homeInfoParams.Content | safeHTML }}</p>
 </section>
 
 {{ $posts := .Site.RegularPages }}
