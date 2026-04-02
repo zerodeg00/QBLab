@@ -970,6 +970,15 @@ img {
   transform: scale(1.03);
 }
 
+.briefing-thumb.no-cover {
+  background: #f8f8fa;
+}
+
+.briefing-thumb.no-cover img {
+  object-fit: contain;
+  padding: 1rem;
+}
+
 .briefing-date {
   display: block;
   font-size: 0.8rem;
