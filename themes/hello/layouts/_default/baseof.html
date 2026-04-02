@@ -20,7 +20,7 @@
   {{ with .Params.cover }}
   <meta property="og:image" content="{{ replace . ".svg" ".png" | absURL }}">
   {{ else }}
-  <meta property="og:image" content="{{ "logo.png" | absURL }}">
+  <meta property="og:image" content="{{ "logo.png" | absURL }}?v=2">
   {{ end }}
   {{ if .IsPage }}
   <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05+09:00" }}">
@@ -37,7 +37,7 @@
   {{ with .Params.cover }}
   <meta name="twitter:image" content="{{ replace . ".svg" ".png" | absURL }}">
   {{ else }}
-  <meta name="twitter:image" content="{{ "logo.png" | absURL }}">
+  <meta name="twitter:image" content="{{ "logo.png" | absURL }}?v=2">
   {{ end }}
 
   {{/* Fonts: 마루부리 + D2Coding */}}
@@ -84,5 +84,6 @@
   <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
   <script>Kakao.init('{{ . }}');</script>
   {{ end }}
+  <script type="module" src="{{ "js/counter.js" | relURL }}"></script>
 </body>
 </html>

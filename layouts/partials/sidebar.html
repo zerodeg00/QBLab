@@ -10,6 +10,21 @@
   </div>
   {{ end }}
 
+  {{/* 조회수 위젯 */}}
+  <div class="sidebar-widget sidebar-counter">
+    <div class="counter-row">
+      <div class="counter-item">
+        <span class="counter-label">오늘 방문</span>
+        <span class="counter-value" id="counter-today">-</span>
+      </div>
+      <div class="counter-divider"></div>
+      <div class="counter-item">
+        <span class="counter-label">전체 방문</span>
+        <span class="counter-value" id="counter-total">-</span>
+      </div>
+    </div>
+  </div>
+
   {{/* 검색 위젯 */}}
   <div class="sidebar-widget sidebar-search">
     <div class="search-input-wrap">
