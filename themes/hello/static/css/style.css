@@ -1551,13 +1551,11 @@ img {
   }
 
   .header-search-mobile {
-    display: flex;
+    display: inline-flex;
     align-items: center;
   }
 
   .site-nav {
-    width: auto;
-    flex: 1;
     overflow-x: auto;
     white-space: nowrap;
     gap: 1rem;
