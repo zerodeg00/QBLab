@@ -133,6 +133,18 @@ img {
   flex-shrink: 0;
 }
 
+.header-search-mobile {
+  display: none;
+  color: #66666e;
+  flex-shrink: 0;
+  padding: 0.25rem;
+  transition: color 0.2s;
+}
+
+.header-search-mobile:hover {
+  color: #5a6ded;
+}
+
 .header-search .search-input-wrap {
   position: relative;
   display: flex;
@@ -1534,20 +1546,18 @@ img {
     padding: 0 1rem 0.5rem;
   }
 
-  .header-search .search-input {
-    width: 120px;
+  .header-search-desktop {
+    display: none;
   }
 
-  .header-search .search-input:focus {
-    width: 160px;
-  }
-
-  .header-search .search-results {
-    width: 260px;
+  .header-search-mobile {
+    display: flex;
+    align-items: center;
   }
 
   .site-nav {
-    width: 100%;
+    width: auto;
+    flex: 1;
     overflow-x: auto;
     white-space: nowrap;
     gap: 1rem;
