@@ -27,13 +27,13 @@
   </div>
   */}}
 
-  {{/* 검색 위젯 */}}
-  <div class="sidebar-widget sidebar-search">
-    <div class="search-input-wrap">
-      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="text" id="search-input" class="search-input" placeholder="검색어를 입력하세요" autocomplete="off">
-    </div>
-    <div id="search-results" class="search-results"></div>
+  {{/* 구독 위젯 */}}
+  <div class="sidebar-widget sidebar-subscribe">
+    <h4 class="sidebar-widget-title">새 글 알림 받기</h4>
+    <form action="https://api.follow.it/subscription-form/enVFU2QvblN6R0dqM1lzbXp0R014eDA5QUo5WkpPSGNrV05TcUZDQjBQZVpXdFlYNjhHbEFhYjk5NllQVldTanhFc0R3RklUTThlYXZNQVhCMmQvcTJkRHF1SkF5Uk9IVVc3dEhvdWFFblZPdkJGRmdjd3AxeGlZVlJqUUVVejZ8alAvMFZOSFlTWHFqanJBVUtYUEJweVpDU2NnU1Z2S1ArY1BEc3BWY2xwcz0=/8" method="post" class="subscribe-form">
+      <input type="email" name="email" placeholder="이메일 주소" required class="subscribe-input">
+      <button type="submit" class="subscribe-btn">구독</button>
+    </form>
   </div>
 
   {{/* 카테고리 위젯 */}}
