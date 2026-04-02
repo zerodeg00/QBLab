@@ -115,22 +115,10 @@ img {
   color: #5a6ded;
 }
 
-.header-nav-bar {
-  display: flex;
-  align-items: center;
+.site-nav {
   max-width: 720px;
   margin: 0 auto;
   padding: 0 1.5rem 0.75rem;
-  gap: 0.75rem;
-}
-
-.has-sidebar .header-nav-bar {
-  max-width: 1120px;
-}
-
-.site-nav {
-  flex: 1;
-  min-width: 0;
   display: flex;
   gap: 1.5rem;
   align-items: center;
@@ -142,6 +130,10 @@ img {
 
 .site-nav::-webkit-scrollbar {
   display: none;
+}
+
+.has-sidebar .site-nav {
+  max-width: 1120px;
 }
 
 .header-search {
@@ -1540,23 +1532,8 @@ img {
     flex-wrap: wrap;
   }
 
-  .header-nav-bar {
-    padding: 0 1rem 0.5rem;
-  }
-
   .site-nav {
-    gap: 1rem;
-  }
-
-  .header-search .search-input {
-    width: 100px;
-  }
-
-  .header-search .search-results {
-    width: 260px;
-  }
-
-  .site-nav {
+    padding: 0 1.5rem 0.5rem;
     gap: 1rem;
   }
 
