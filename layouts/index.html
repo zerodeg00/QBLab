@@ -45,11 +45,9 @@
   <div class="briefing-grid">
     {{ range first 9 $rest }}
     <a href="{{ .RelPermalink }}" class="briefing-card">
-      {{ with .Params.cover }}
-      <div class="briefing-thumb">
-        <img src="{{ . | relURL }}" alt="" loading="lazy">
+      <div class="briefing-thumb{{ if not .Params.cover }} no-cover{{ end }}">
+        <img src="{{ with .Params.cover }}{{ . | relURL }}{{ else }}{{ "logo.png" | relURL }}{{ end }}" alt="" loading="lazy">
       </div>
-      {{ end }}
       <time class="briefing-date">{{ .Date.Format "2006-01-02" }}</time>
       <h3 class="briefing-title">{{ .Title }}</h3>
     </a>

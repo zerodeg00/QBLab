@@ -970,6 +970,15 @@ img {
   transform: scale(1.03);
 }
 
+.briefing-thumb.no-cover {
+  background: #f8f8fa;
+}
+
+.briefing-thumb.no-cover img {
+  object-fit: contain;
+  padding: 1rem;
+}
+
 .briefing-date {
   display: block;
   font-size: 0.8rem;
@@ -1045,6 +1054,42 @@ img {
   font-size: 0.85rem;
   color: #66666e;
   line-height: 1.6;
+}
+
+/* Counter Widget */
+.sidebar-counter {
+  padding: 1rem 1.25rem;
+}
+
+.counter-row {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.counter-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.counter-label {
+  font-size: 0.75rem;
+  color: #9999a1;
+}
+
+.counter-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e1f21;
+}
+
+.counter-divider {
+  width: 1px;
+  height: 32px;
+  background: #e6e6e9;
+  flex-shrink: 0;
 }
 
 /* Search Widget */
