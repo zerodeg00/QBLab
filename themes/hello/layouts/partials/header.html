@@ -7,6 +7,13 @@
         <span class="logo-sub">비트노마드의 투자일지</span>
       </span>
     </a>
+  </div>
+  <div class="header-nav-bar">
+    <nav class="site-nav">
+      {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}" class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }}">{{ .Name }}</a>
+      {{ end }}
+    </nav>
     <div class="header-search">
       <div class="search-input-wrap">
         <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -15,9 +22,4 @@
       <div id="search-results" class="search-results"></div>
     </div>
   </div>
-  <nav class="site-nav">
-    {{ range .Site.Menus.main }}
-    <a href="{{ .URL }}" class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }}">{{ .Name }}</a>
-    {{ end }}
-  </nav>
 </header>
