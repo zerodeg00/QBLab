@@ -1,6 +1,6 @@
 // Firebase 조회수 카운터
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-import { getDatabase, ref, get, set, runTransaction } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+import { getDatabase, ref, get, runTransaction } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD56oJVDcZ68M-T8sy53yM3VX7KkbCftf0",
@@ -14,6 +14,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+const today = getTodayKST();
+const totalRef = ref(db, 'pageviews/total');
+const dailyRef = ref(db, 'pageviews/daily/' + today);
+const pageKey = location.pathname.replace(/\//g, '_') || '_home';
+const pageRef = ref(db, 'pageviews/pages/' + pageKey);
 
 // 오늘 날짜 (KST)
 function getTodayKST() {
@@ -22,42 +27,64 @@ function getTodayKST() {
   return kst.toISOString().slice(0, 10);
 }
 
-// 중복 카운트 방지 (세션당 1회)
-var counted = sessionStorage.getItem('qb_counted_' + location.pathname);
+function renderCount(el, value) {
+  if (el) {
+    el.textContent = Math.max(0, Number(value) || 0).toLocaleString();
+  }
+}
 
-if (!counted) {
-  sessionStorage.setItem('qb_counted_' + location.pathname, '1');
-  var today = getTodayKST();
+function readCounters(todayEl, totalEl) {
+  return Promise.allSettled([get(totalRef), get(dailyRef)]).then(function (results) {
+    var totalResult = results[0];
+    var dailyResult = results[1];
 
-  // 전체 조회수 +1
-  runTransaction(ref(db, 'pageviews/total'), function (val) {
-    return (val || 0) + 1;
-  });
+    if (totalResult.status === 'fulfilled') {
+      renderCount(totalEl, totalResult.value.val());
+    }
 
-  // 당일 조회수 +1
-  runTransaction(ref(db, 'pageviews/daily/' + today), function (val) {
-    return (val || 0) + 1;
-  });
-
-  // 페이지별 조회수 +1
-  var pageKey = location.pathname.replace(/\//g, '_') || '_home';
-  runTransaction(ref(db, 'pageviews/pages/' + pageKey), function (val) {
-    return (val || 0) + 1;
+    if (dailyResult.status === 'fulfilled') {
+      renderCount(todayEl, dailyResult.value.val());
+    }
   });
 }
+
+// 중복 카운트 방지 (세션당 1회)
+var counted = sessionStorage.getItem('qb_counted_' + location.pathname);
 
 // 사이드바 위젯에 조회수 표시
 var todayEl = document.getElementById('counter-today');
 var totalEl = document.getElementById('counter-total');
 
 if (todayEl || totalEl) {
-  var today = getTodayKST();
+  readCounters(todayEl, totalEl);
+}
 
-  get(ref(db, 'pageviews/total')).then(function (snap) {
-    if (totalEl) totalEl.textContent = (snap.val() || 0).toLocaleString();
-  });
+if (!counted) {
+  sessionStorage.setItem('qb_counted_' + location.pathname, '1');
 
-  get(ref(db, 'pageviews/daily/' + today)).then(function (snap) {
-    if (todayEl) todayEl.textContent = (snap.val() || 0).toLocaleString();
+  Promise.all([
+    runTransaction(totalRef, function (val) {
+      return (val || 0) + 1;
+    }),
+    runTransaction(dailyRef, function (val) {
+      return (val || 0) + 1;
+    }),
+    runTransaction(pageRef, function (val) {
+      return (val || 0) + 1;
+    })
+  ]).then(function (results) {
+    var totalResult = results[0];
+    var dailyResult = results[1];
+
+    if (totalResult.committed) {
+      renderCount(totalEl, totalResult.snapshot.val());
+    }
+
+    if (dailyResult.committed) {
+      renderCount(todayEl, dailyResult.snapshot.val());
+    }
+  }).catch(function () {
+    sessionStorage.removeItem('qb_counted_' + location.pathname);
+    return readCounters(todayEl, totalEl);
   });
 }
