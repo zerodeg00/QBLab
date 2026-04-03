@@ -1,34 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Liberation Day on 큐비랩 — 비트노마드의 투자일지</title><link>https://qblab.kr/tags/liberation-day/</link><description>Recent content in Liberation Day on 큐비랩 — 비트노마드의 투자일지</description><generator>Hugo</generator><language>ko</language><lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://qblab.kr/tags/liberation-day/index.xml" rel="self" type="application/rss+xml"/><item><title>[26/04/03] 데일리 레포트 — 트럼프 관세 폭탄 충격, 비트코인 $66K 급락과 극단적 공포</title><link>https://qblab.kr/posts/260403-liberation-day-tariff-shock-btc-66k/</link><pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate><guid>https://qblab.kr/posts/260403-liberation-day-tariff-shock-btc-66k/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;포지션: &lt;strong&gt;관망&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;트럼프 대통령이 4월 2일 선언한 &amp;lsquo;Liberation Day&amp;rsquo; 관세 정책이 글로벌 금융시장에 충격파를 던졌다. 50개국 이상을 대상으로 한 기본 10%, 최대 50%에 달하는 보복관세 계획이 공개되면서 위험자산 전반이 급락했고, 비트코인도 예외는 아니었다.&lt;/p&gt;
-&lt;h3 id="주요-일정"&gt;주요 일정&lt;/h3&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;날짜&lt;/th&gt;
- &lt;th&gt;이벤트&lt;/th&gt;
- &lt;th&gt;예상 영향&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;04/05&lt;/td&gt;
- &lt;td&gt;트럼프 관세 기본 10% 발효&lt;/td&gt;
- &lt;td&gt;글로벌 교역 위축 우려, 위험자산 추가 하방 압력&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;04/09&lt;/td&gt;
- &lt;td&gt;상호관세 완전 적용 예정&lt;/td&gt;
- &lt;td&gt;미중 무역전쟁 재점화 가능성&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;05/06-07&lt;/td&gt;
- &lt;td&gt;FOMC 정례회의&lt;/td&gt;
- &lt;td&gt;관세발 인플레이션 vs 경기둔화 딜레마&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;hr&gt;
-&lt;h2 id="시장-현황"&gt;시장 현황&lt;/h2&gt;
-&lt;p&gt;비트코인은 현재 $66,800 부근에서 거래되고 있다. 4월 1일 $68,500 수준에서 관세 발표 이후 $65,800까지 밀렸다가 소폭 반등한 상태다. 24시간 거래량은 약 477억 달러로 변동성이 확대되는 가운데 매도 압력이 우세한 흐름이다.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Liberation Day on 큐비랩 — 비트노마드의 투자일지</title>
+    <link>http://localhost:1313/tags/liberation-day/</link>
+    <description>Recent content in Liberation Day on 큐비랩 — 비트노마드의 투자일지</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/liberation-day/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[26/04/03] 데일리 레포트 — 트럼프 관세 폭탄 충격, 비트코인 $66K 급락과 극단적 공포</title>
+      <link>http://localhost:1313/posts/260403-liberation-day-tariff-shock-btc-66k/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/260403-liberation-day-tariff-shock-btc-66k/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;포지션: &lt;strong&gt;관망&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;트럼프 대통령이 4월 2일 선언한 &amp;lsquo;Liberation Day&amp;rsquo; 관세 정책이 글로벌 금융시장에 충격파를 던졌다. 50개국 이상을 대상으로 한 기본 10%, 최대 50%에 달하는 보복관세 계획이 공개되면서 위험자산 전반이 급락했고, 비트코인도 예외는 아니었다.&lt;/p&gt;&#xA;&lt;h3 id=&#34;주요-일정&#34;&gt;주요 일정&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;날짜&lt;/th&gt;&#xA;          &lt;th&gt;이벤트&lt;/th&gt;&#xA;          &lt;th&gt;예상 영향&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;04/05&lt;/td&gt;&#xA;          &lt;td&gt;트럼프 관세 기본 10% 발효&lt;/td&gt;&#xA;          &lt;td&gt;글로벌 교역 위축 우려, 위험자산 추가 하방 압력&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;04/09&lt;/td&gt;&#xA;          &lt;td&gt;상호관세 완전 적용 예정&lt;/td&gt;&#xA;          &lt;td&gt;미중 무역전쟁 재점화 가능성&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;05/06-07&lt;/td&gt;&#xA;          &lt;td&gt;FOMC 정례회의&lt;/td&gt;&#xA;          &lt;td&gt;관세발 인플레이션 vs 경기둔화 딜레마&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;시장-현황&#34;&gt;시장 현황&lt;/h2&gt;&#xA;&lt;p&gt;비트코인은 현재 $66,800 부근에서 거래되고 있다. 4월 1일 $68,500 수준에서 관세 발표 이후 $65,800까지 밀렸다가 소폭 반등한 상태다. 24시간 거래량은 약 477억 달러로 변동성이 확대되는 가운데 매도 압력이 우세한 흐름이다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
