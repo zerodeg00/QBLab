@@ -127,16 +127,6 @@
   })();
   </script>
 
-  {{/* 포스트 하단 구독 CTA */}}
-  <div class="post-subscribe">
-    <p class="post-subscribe-title">새 글 알림을 받아보세요</p>
-    <p class="post-subscribe-desc">매일 시장 분석과 매매 기록을 이메일로 받아볼 수 있습니다.</p>
-    <form action="https://api.follow.it/subscription-form/enVFU2QvblN6R0dqM1lzbXp0R014eDA5QUo5WkpPSGNrV05TcUZDQjBQZVpXdFlYNjhHbEFhYjk5NllQVldTanhFc0R3RklUTThlYXZNQVhCMmQvcTJkRHF1SkF5Uk9IVVc3dEhvdWFFblZPdkJGRmdjd3AxeGlZVlJqUUVVejZ8alAvMFZOSFlTWHFqanJBVUtYUEJweVpDU2NnU1Z2S1ArY1BEc3BWY2xwcz0=/8" method="post" class="post-subscribe-form">
-      <input type="email" name="email" placeholder="이메일 주소" required class="subscribe-input">
-      <button type="submit" class="subscribe-btn">구독</button>
-    </form>
-  </div>
-
   <nav class="post-nav">
     {{ with .PrevInSection }}
     <a href="{{ .Permalink }}" class="nav-prev">
