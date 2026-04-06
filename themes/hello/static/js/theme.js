@@ -23,6 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     siteHeader.style.setProperty('--header-brand-height', `${headerBrandHeight}px`);
   };
 
+  const enableHeaderTransitions = () => {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        siteHeader.classList.add('is-interactive');
+      });
+    });
+  };
+
   const setCollapsed = (nextCollapsed) => {
     if (nextCollapsed === isCollapsed) {
       return nextCollapsed;
@@ -92,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   syncHeaderHeight();
   isCollapsed = siteHeader.classList.contains('is-collapsed');
   updateHeaderState();
+  enableHeaderTransitions();
 
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', handleResize);

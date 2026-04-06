@@ -67,7 +67,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
-  --header-brand-height: 0px;
+  --header-brand-height: 240px;
   --header-nav-side-padding: 1.5rem;
 }
 
@@ -81,12 +81,15 @@ img {
   justify-content: space-between;
   overflow: hidden;
   transform-origin: top center;
+  will-change: max-height, padding, opacity, transform;
+}
+
+.site-header.is-interactive .header-inner {
   transition:
     max-height 0.18s cubic-bezier(0.22, 1, 0.36, 1),
     padding 0.18s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.14s ease-out,
     transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: max-height, padding, opacity, transform;
 }
 
 .site-header.is-collapsed .header-inner {
@@ -145,12 +148,15 @@ img {
   overflow: hidden;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
+}
+
+.site-header.is-interactive .header-compact-meta {
   transition:
     max-height 0.18s cubic-bezier(0.22, 1, 0.36, 1),
     padding 0.18s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.12s ease-out,
     visibility 0s linear 0.18s;
-  pointer-events: none;
 }
 
 .header-compact-subtitle {
@@ -179,6 +185,9 @@ img {
   padding-bottom: 0;
   opacity: 1;
   visibility: visible;
+}
+
+.site-header.is-interactive.is-collapsed .header-compact-meta {
   transition:
     max-height 0.18s cubic-bezier(0.22, 1, 0.36, 1),
     padding 0.18s cubic-bezier(0.22, 1, 0.36, 1),
@@ -198,6 +207,9 @@ img {
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+}
+
+.site-header.is-interactive .site-nav {
   transition: padding 0.18s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
