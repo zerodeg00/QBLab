@@ -1214,6 +1214,46 @@ img {
   line-height: 1.6;
 }
 
+/* Position Widget */
+.sidebar-position {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+}
+
+.position-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #66666e;
+}
+
+.position-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.position-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.pos-neutral .position-dot { background: #9CA3AF; }
+.pos-neutral { color: #6B7280; background: #F3F4F6; }
+
+.pos-long .position-dot { background: #10B981; }
+.pos-long { color: #059669; background: #ECFDF5; }
+
+.pos-short .position-dot { background: #EF4444; }
+.pos-short { color: #DC2626; background: #FEF2F2; }
+
 /* Subscribe Widget (sidebar) */
 .sidebar-subscribe {
   text-align: left;

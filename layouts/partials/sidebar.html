@@ -10,6 +10,31 @@
   </div>
   {{ end }}
 
+  {{/* 포지션 위젯 */}}
+  {{ $latestPost := index (where .Site.RegularPages "Section" "posts") 0 }}
+  {{ if $latestPost }}
+  {{ $posTag := index $latestPost.Params.tags 0 }}
+  {{ $posLabel := "없음" }}
+  {{ $posClass := "pos-neutral" }}
+  {{ if eq $posTag "롱 매수" }}
+    {{ $posLabel = "롱" }}
+    {{ $posClass = "pos-long" }}
+  {{ else if eq $posTag "숏 매수" }}
+    {{ $posLabel = "숏" }}
+    {{ $posClass = "pos-short" }}
+  {{ else if or (eq $posTag "숏 보유") }}
+    {{ $posLabel = "숏" }}
+    {{ $posClass = "pos-short" }}
+  {{ else if or (eq $posTag "롱 보유") }}
+    {{ $posLabel = "롱" }}
+    {{ $posClass = "pos-long" }}
+  {{ end }}
+  <div class="sidebar-widget sidebar-position">
+    <span class="position-label">현재 포지션</span>
+    <span class="position-badge {{ $posClass }}"><span class="position-dot"></span>{{ $posLabel }}</span>
+  </div>
+  {{ end }}
+
   {{/* 검색 위젯 */}}
   <div class="sidebar-widget sidebar-search">
     <div class="search-input-wrap">
