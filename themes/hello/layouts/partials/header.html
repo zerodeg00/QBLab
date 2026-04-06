@@ -8,6 +8,12 @@
       </span>
     </a>
   </div>
+  <div class="header-compact-meta" aria-hidden="true">
+    <span class="header-compact-brand">
+      <img src="{{ "logo.png" | relURL }}" alt="" class="header-compact-logo">
+      <span class="header-compact-subtitle">비트노마드의 투자일지</span>
+    </span>
+  </div>
   <nav class="site-nav">
     {{ range .Site.Menus.main }}
     <a href="{{ .URL }}" class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }}">{{ .Name }}</a>
