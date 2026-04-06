@@ -1,6 +1,6 @@
 baseURL = 'https://qblab.kr/'
 languageCode = 'ko'
-title = '큐비랩 — 비트노마드의 투자일지'
+title = '큐비랩'
 theme = 'hello'
 paginate = 12
 [services]
@@ -8,9 +8,10 @@ paginate = 12
     ID = 'G-TNCCE8KVLR'
 
 [params]
-  author = '큐비랩'
+  author = '비트노마드'
+  siteFullTitle = '큐비랩 - 비트노마드의 투자일지'
   description = '비트코인 자동매매 시스템을 직접 개발하고 운용하는 비트노마드의 투자일지. 매일 시장 분석과 실전 트레이딩 기록을 공유합니다.'
-  ShowReadingTime = true
+  ShowReadingTime = false
   ShowShareButtons = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true

@@ -20,8 +20,7 @@
           {{ with .Description }}<p class="post-desc-h">{{ . }}</p>{{ end }}
           <div class="post-meta-h">
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-            {{ with .Params.author }}<span>· {{ . }}</span>{{ end }}
-            <span>· {{ .ReadingTime }}분</span>
+            {{ with (default .Site.Params.author .Params.author) }}<span>· {{ . }}</span>{{ end }}
           </div>
           {{ with .Params.tags }}
           <div class="post-tags-h">

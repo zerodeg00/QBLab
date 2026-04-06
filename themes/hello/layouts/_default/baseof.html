@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode | default "ko" }}" id="hELLO">
 <head>
+  {{ $siteName := .Site.Title }}
+  {{ $siteFullTitle := .Site.Params.siteFullTitle | default $siteName }}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-adsense-account" content="ca-pub-9771218410039003">
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+  <title>{{ if .IsHome }}{{ $siteFullTitle }}{{ else }}{{ .Title }} - {{ $siteName }}{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta name="naver-site-verification" content="971d4508aba19a4594fc47d7d43039558dc273f7" />
 
@@ -16,7 +18,7 @@
   <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:site_name" content="{{ $siteName }}">
   <meta property="og:locale" content="ko_KR">
   {{ with .Params.cover }}
   <meta property="og:image" content="{{ replace . ".svg" ".png" | absURL }}">
@@ -49,7 +51,19 @@
 
   {{/* RSS */}}
   {{ range .AlternativeOutputFormats }}
-  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $siteName }}">
+  {{ end }}
+
+  {{ if .IsHome }}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": {{ $siteName | jsonify | safeJS }},
+      "alternateName": {{ $siteFullTitle | jsonify | safeJS }},
+      "url": "{{ .Site.Home.Permalink }}"
+    }
+  </script>
   {{ end }}
 
   <link rel="icon" type="image/png" href="{{ "favicon.png" | relURL }}">

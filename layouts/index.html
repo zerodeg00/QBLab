@@ -20,8 +20,7 @@
       {{ with .Description }}<p class="featured-desc">{{ . }}</p>{{ end }}
       <div class="featured-meta">
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-        {{ with .Params.author }}<span>· {{ . }}</span>{{ end }}
-        <span>· {{ .ReadingTime }}분</span>
+        {{ with (default .Site.Params.author .Params.author) }}<span>· {{ . }}</span>{{ end }}
       </div>
       {{ with .Params.tags }}
       <div class="featured-tags">
