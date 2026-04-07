@@ -1,91 +1,42 @@
 // hELLO Hugo Theme — Light mode only (no toggle needed)
 document.documentElement.classList.remove('dark');
 
-const HEADER_TOP_THRESHOLD = 2;
-const SCROLL_DELTA_THRESHOLD = 2;
+const HEADER_TOP_THRESHOLD = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
   const siteHeader = document.querySelector('.site-header');
   const headerInner = siteHeader?.querySelector('.header-inner');
+  const rootStyle = document.documentElement.style;
 
   if (!siteHeader || !headerInner) {
     return;
   }
 
-  let lastScrollY = Math.max(window.scrollY, 0);
   let ticking = false;
-  let isCollapsed = false;
-  let isTransitioning = false;
-  let headerBrandHeight = headerInner.scrollHeight;
+  let headerBrandHeight = 0;
 
   const syncHeaderHeight = () => {
+    siteHeader.style.setProperty('--header-collapse-offset', '0px');
+    siteHeader.style.setProperty('--header-collapse-progress', '0');
+    siteHeader.style.setProperty('--header-compact-progress', '0');
     headerBrandHeight = headerInner.scrollHeight;
     siteHeader.style.setProperty('--header-brand-height', `${headerBrandHeight}px`);
-  };
-
-  const enableHeaderTransitions = () => {
-    window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        siteHeader.classList.add('is-interactive');
-      });
-    });
-  };
-
-  const setCollapsed = (nextCollapsed) => {
-    if (nextCollapsed === isCollapsed) {
-      return nextCollapsed;
-    }
-
-    siteHeader.classList.toggle('is-collapsed', nextCollapsed);
-    isTransitioning = true;
-    return nextCollapsed;
-  };
-
-  const handleResize = () => {
-    syncHeaderHeight();
-    lastScrollY = Math.max(window.scrollY, 0);
-
-    if (!isTransitioning && lastScrollY <= HEADER_TOP_THRESHOLD) {
-      isCollapsed = setCollapsed(false);
-    }
-  };
-
-  const handleTransitionEnd = (event) => {
-    if (event.target !== headerInner || event.propertyName !== 'max-height') {
-      return;
-    }
-
-    isTransitioning = false;
-    lastScrollY = Math.max(window.scrollY, 0);
+    updateHeaderState();
   };
 
   const updateHeaderState = () => {
     ticking = false;
 
-    const currentScrollY = Math.max(window.scrollY, 0);
-    const delta = currentScrollY - lastScrollY;
+    const currentScrollY = Math.max(window.scrollY - HEADER_TOP_THRESHOLD, 0);
+    const collapseOffset = Math.min(currentScrollY, headerBrandHeight);
+    const collapseProgress = headerBrandHeight > 0 ? collapseOffset / headerBrandHeight : 0;
+    const compactProgress = Math.max(0, Math.min((collapseProgress - 0.68) / 0.32, 1));
 
-    if (isTransitioning) {
-      lastScrollY = currentScrollY;
-      return;
-    }
-
-    if (currentScrollY <= HEADER_TOP_THRESHOLD) {
-      isCollapsed = setCollapsed(false);
-      lastScrollY = currentScrollY;
-      return;
-    }
-
-    if (Math.abs(delta) < SCROLL_DELTA_THRESHOLD) {
-      lastScrollY = currentScrollY;
-      return;
-    }
-
-    if (!isCollapsed && delta > 0 && currentScrollY > HEADER_TOP_THRESHOLD) {
-      isCollapsed = setCollapsed(true);
-    }
-
-    lastScrollY = currentScrollY;
+    siteHeader.style.setProperty('--header-collapse-offset', `${collapseOffset}px`);
+    siteHeader.style.setProperty('--header-collapse-progress', collapseProgress.toFixed(4));
+    siteHeader.style.setProperty('--header-compact-progress', compactProgress.toFixed(4));
+    rootStyle.setProperty('--header-scroll-lock-offset', `${collapseOffset}px`);
+    siteHeader.classList.toggle('is-collapsed', collapseProgress >= 0.999 && collapseOffset > 0);
   };
 
   const onScroll = () => {
@@ -98,17 +49,18 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   syncHeaderHeight();
-  isCollapsed = siteHeader.classList.contains('is-collapsed');
   updateHeaderState();
-  enableHeaderTransitions();
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', handleResize);
-  headerInner.addEventListener('transitionend', handleTransitionEnd);
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const siteLogo = headerInner.querySelector('.site-logo');
 
   if (typeof ResizeObserver === 'function') {
     const resizeObserver = new ResizeObserver(syncHeaderHeight);
-    resizeObserver.observe(headerInner);
+    if (siteLogo) {
+      resizeObserver.observe(siteLogo);
+    }
   }
 
   const logoImage = headerInner.querySelector('.logo-img');
