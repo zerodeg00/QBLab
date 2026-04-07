@@ -3,12 +3,16 @@
 <head>
   {{ $siteName := .Site.Title }}
   {{ $siteFullTitle := .Site.Params.siteFullTitle | default $siteName }}
+  {{ $isSearchPage := eq .Section "search" }}
+  {{ $isTaxonomyPage := or (eq .Kind "taxonomy") (eq .Kind "term") (eq .Kind "taxonomyTerm") }}
+  {{ $noindex := or .Params.noindex $isSearchPage $isTaxonomyPage }}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-adsense-account" content="ca-pub-9771218410039003">
   <title>{{ if .IsHome }}{{ $siteFullTitle }}{{ else }}{{ .Title }} - {{ $siteName }}{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta name="naver-site-verification" content="971d4508aba19a4594fc47d7d43039558dc273f7" />
+  {{ if $noindex }}<meta name="robots" content="noindex,follow">{{ end }}
 
   {{/* Canonical URL */}}
   <link rel="canonical" href="{{ .Permalink }}">
