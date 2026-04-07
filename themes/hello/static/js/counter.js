@@ -15,10 +15,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const today = getTodayKST();
+const VIEW_COOLDOWN_MS = 10 * 1000;
 const totalRef = ref(db, 'pageviews/total');
 const dailyRef = ref(db, 'pageviews/daily/' + today);
 const pageKey = location.pathname.replace(/\//g, '_') || '_home';
 const pageRef = ref(db, 'pageviews/pages/' + pageKey);
+const cooldownKey = 'qb_last_view_' + location.pathname;
 
 // 오늘 날짜 (KST)
 function getTodayKST() {
@@ -48,8 +50,31 @@ function readCounters(todayEl, totalEl) {
   });
 }
 
-// 중복 카운트 방지 (세션당 1회)
-var counted = sessionStorage.getItem('qb_counted_' + location.pathname);
+function getLastViewTimestamp() {
+  try {
+    return Number(localStorage.getItem(cooldownKey)) || 0;
+  } catch (_error) {
+    return 0;
+  }
+}
+
+function setLastViewTimestamp(timestamp) {
+  try {
+    localStorage.setItem(cooldownKey, String(timestamp));
+  } catch (_error) {
+    // 브라우저 저장소를 쓸 수 없는 경우에는 쿨다운 없이 집계한다.
+  }
+}
+
+function clearLastViewTimestamp(timestamp) {
+  try {
+    if (Number(localStorage.getItem(cooldownKey)) === timestamp) {
+      localStorage.removeItem(cooldownKey);
+    }
+  } catch (_error) {
+    // 저장소 접근 실패는 무시한다.
+  }
+}
 
 // 사이드바 위젯에 조회수 표시
 var todayEl = document.getElementById('counter-today');
@@ -59,8 +84,12 @@ if (todayEl || totalEl) {
   readCounters(todayEl, totalEl);
 }
 
-if (!counted) {
-  sessionStorage.setItem('qb_counted_' + location.pathname, '1');
+var now = Date.now();
+var lastViewTimestamp = getLastViewTimestamp();
+
+// 티스토리식 PV에 가깝게 집계하되, 같은 페이지의 아주 짧은 연속 새로고침만 10초 쿨다운으로 막는다.
+if (now - lastViewTimestamp >= VIEW_COOLDOWN_MS) {
+  setLastViewTimestamp(now);
 
   Promise.all([
     runTransaction(totalRef, function (val) {
@@ -84,7 +113,7 @@ if (!counted) {
       renderCount(todayEl, dailyResult.snapshot.val());
     }
   }).catch(function () {
-    sessionStorage.removeItem('qb_counted_' + location.pathname);
+    clearLastViewTimestamp(now);
     return readCounters(todayEl, totalEl);
   });
 }
