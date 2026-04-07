@@ -71,7 +71,9 @@ img {
   --header-brand-height: 240px;
   --header-collapse-offset: 0px;
   --header-collapse-progress: 0;
+  --header-brand-fade-progress: 0;
   --header-compact-progress: 0;
+  --header-compact-visible: 0;
   --header-nav-side-padding: 1.5rem;
   --header-inner-padding-x: 1.5rem;
   --header-inner-padding-y: 1.25rem;
@@ -95,7 +97,7 @@ img {
   justify-content: space-between;
   overflow: hidden;
   transform-origin: top center;
-  opacity: calc(1 - var(--header-collapse-progress));
+  opacity: calc(1 - var(--header-brand-fade-progress));
   transform: translateY(calc(-1 * var(--header-inner-shift) * var(--header-collapse-progress)));
   will-change: max-height, padding, opacity, transform;
 }
@@ -142,9 +144,9 @@ img {
   width: 100%;
   max-width: 720px;
   margin: 0 auto;
-  max-height: calc(var(--header-compact-max-height) * var(--header-compact-progress));
+  max-height: calc(var(--header-compact-max-height) * var(--header-compact-visible));
   padding: 0 var(--header-nav-side-padding);
-  padding-top: calc(var(--header-compact-padding-top) * var(--header-compact-progress));
+  padding-top: calc(var(--header-compact-padding-top) * var(--header-compact-visible));
   overflow: hidden;
   opacity: var(--header-compact-progress);
   visibility: visible;

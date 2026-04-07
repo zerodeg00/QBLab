@@ -6,6 +6,7 @@
   {{ $isSearchPage := eq .Section "search" }}
   {{ $isTaxonomyPage := or (eq .Kind "taxonomy") (eq .Kind "term") (eq .Kind "taxonomyTerm") }}
   {{ $noindex := or .Params.noindex $isSearchPage $isTaxonomyPage }}
+  {{ $showSidebar := or (not .IsPage) (not (or .Params.unlisted .Params.disableSidebar)) }}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-adsense-account" content="ca-pub-9771218410039003">
@@ -89,14 +90,14 @@
   </script>
   {{ end }}
 </head>
-<body class="{{ if .IsHome }}is-home has-sidebar{{ else if .IsPage }}{{ else }}is-wide has-sidebar{{ end }}">
+<body class="{{ if .IsHome }}is-home{{ else if not .IsPage }}is-wide{{ end }}{{ if $showSidebar }} has-sidebar{{ end }}">
   <div class="site-wrapper">
     {{ partial "header.html" . }}
     <div class="content-wrapper">
       <main class="site-main">
         {{ block "main" . }}{{ end }}
       </main>
-      {{ if not .IsPage }}{{ partial "sidebar.html" . }}{{ end }}
+      {{ if $showSidebar }}{{ partial "sidebar.html" . }}{{ end }}
     </div>
     {{ partial "footer.html" . }}
   </div>
