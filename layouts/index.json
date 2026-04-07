@@ -1,4 +1,9 @@
-{{- $pages := where .Site.RegularPages "Draft" false -}}
+{{- $pages := slice -}}
+{{- range .Site.RegularPages -}}
+  {{- if and (not .Draft) (not .Params.unlisted) -}}
+    {{- $pages = $pages | append . -}}
+  {{- end -}}
+{{- end -}}
 [
 {{- range $i, $p := $pages }}
   {{- if $i }},{{ end }}

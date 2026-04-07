@@ -63,6 +63,7 @@
     {{ .Content }}
   </div>
 
+  {{ if not .Params.disableshare }}
   {{/* 공유 버튼 */}}
   <div class="share-buttons">
     <span class="share-label">공유하기</span>
@@ -125,7 +126,9 @@
     }
   })();
   </script>
+  {{ end }}
 
+  {{ if not .Params.disablepostnav }}
   <nav class="post-nav">
     {{ with .PrevInSection }}
     <a href="{{ .Permalink }}" class="nav-prev">
@@ -140,7 +143,10 @@
     </a>
     {{ end }}
   </nav>
+  {{ end }}
 
+  {{ if not .Params.disablecomments }}
   {{ partial "comments.html" . }}
+  {{ end }}
 </article>
 {{ end }}

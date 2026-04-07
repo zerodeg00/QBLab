@@ -5,7 +5,12 @@
   <p class="hero-desc">자동으로 매매하는 비트노마드의 투자일지<br>매일 시장 분석과 매매 기록을 공유합니다</p>
 </section>
 
-{{ $posts := .Site.RegularPages }}
+{{ $posts := slice }}
+{{ range .Site.RegularPages }}
+  {{ if not .Params.unlisted }}
+    {{ $posts = $posts | append . }}
+  {{ end }}
+{{ end }}
 
 <!-- Featured Post (최신 1개) -->
 {{ with index $posts 0 }}

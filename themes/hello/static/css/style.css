@@ -861,6 +861,28 @@ img {
   color: #9999a1;
 }
 
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+  font-size: 0.82rem;
+}
+
+.footer-links a {
+  color: #66666e;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #1e1f21;
+}
+
+.footer-link-divider {
+  color: #c1c1c8;
+}
+
 /* --- Pagination --- */
 .pagination {
   display: flex;
