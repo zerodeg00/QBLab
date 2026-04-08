@@ -1658,7 +1658,7 @@ img {
     --header-inner-padding-y: 1rem;
     --header-nav-padding-bottom: 0.5rem;
     --header-nav-padding-bottom-delta: 0.1rem;
-    --header-nav-padding-top-collapsed: 0.25rem;
+    --header-nav-padding-top-collapsed: 1.6rem;
   }
 
   .header-inner {
