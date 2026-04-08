@@ -73,16 +73,13 @@ img {
   --header-collapse-progress: 0;
   --header-brand-fade-progress: 0;
   --header-compact-progress: 0;
-  --header-compact-visible: 0;
   --header-nav-side-padding: 1.5rem;
   --header-inner-padding-x: 1.5rem;
   --header-inner-padding-y: 1.25rem;
   --header-inner-shift: 0.75rem;
-  --header-compact-max-height: 2rem;
-  --header-compact-padding-top: 0.5rem;
   --header-nav-padding-bottom: 0.75rem;
   --header-nav-padding-bottom-delta: 0.125rem;
-  --header-nav-padding-top-collapsed: 0.35rem;
+  --header-nav-padding-top-collapsed: 1.9rem;
 }
 
 .header-inner {
@@ -139,18 +136,16 @@ img {
   color: #5a6ded;
 }
 
-.header-compact-meta {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  max-height: calc(var(--header-compact-max-height) * var(--header-compact-visible));
-  padding: 0 var(--header-nav-side-padding);
-  padding-top: calc(var(--header-compact-padding-top) * var(--header-compact-visible));
-  overflow: hidden;
+.header-compact-brand {
+  position: absolute;
+  top: 0.4rem;
+  left: var(--header-nav-side-padding);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   opacity: var(--header-compact-progress);
-  visibility: visible;
   pointer-events: none;
+  z-index: 1;
 }
 
 .header-compact-subtitle {
@@ -158,12 +153,6 @@ img {
   font-weight: 500;
   line-height: 1.3;
   color: #8f8f97;
-}
-
-.header-compact-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
 }
 
 .header-compact-logo {
@@ -174,6 +163,7 @@ img {
 }
 
 .site-nav {
+  position: relative;
   box-sizing: border-box;
   width: 100%;
   max-width: 720px;
@@ -182,6 +172,9 @@ img {
     calc(var(--header-nav-padding-top-collapsed) * var(--header-collapse-progress))
     var(--header-nav-side-padding)
     calc(var(--header-nav-padding-bottom) - (var(--header-nav-padding-bottom-delta) * var(--header-collapse-progress)));
+}
+
+.site-nav-links {
   display: flex;
   gap: 1.5rem;
   align-items: center;
@@ -191,15 +184,11 @@ img {
   scrollbar-width: none;
 }
 
-.site-nav::-webkit-scrollbar {
+.site-nav-links::-webkit-scrollbar {
   display: none;
 }
 
 .has-sidebar .site-nav {
-  max-width: 1120px;
-}
-
-.has-sidebar .header-compact-meta {
   max-width: 1120px;
 }
 
@@ -1676,7 +1665,7 @@ img {
     flex-shrink: 0;
   }
 
-  .site-nav {
+  .site-nav-links {
     gap: 1rem;
   }
 
