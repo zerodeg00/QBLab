@@ -76,4 +76,45 @@ document.addEventListener('DOMContentLoaded', () => {
   if (logoImage && !logoImage.complete) {
     logoImage.addEventListener('load', syncHeaderHeight, { once: true });
   }
+
+  // --- Bidirectional sticky sidebar ---
+  const sidebar = document.querySelector('.sidebar');
+  if (sidebar) {
+    const SIDEBAR_TOP_MAX = 80;
+    let sidebarTop = SIDEBAR_TOP_MAX;
+    let prevSidebarScrollY = window.scrollY;
+    let sidebarTicking = false;
+
+    const updateSidebarPosition = () => {
+      sidebarTicking = false;
+      const scrollY = window.scrollY;
+      const delta = scrollY - prevSidebarScrollY;
+      prevSidebarScrollY = scrollY;
+
+      const viewportH = window.innerHeight;
+      const sidebarH = sidebar.offsetHeight;
+
+      if (sidebarH <= viewportH - SIDEBAR_TOP_MAX) {
+        sidebar.style.top = SIDEBAR_TOP_MAX + 'px';
+        sidebarTop = SIDEBAR_TOP_MAX;
+        return;
+      }
+
+      const minTop = viewportH - sidebarH;
+      sidebarTop = Math.max(minTop, Math.min(SIDEBAR_TOP_MAX, sidebarTop - delta));
+      sidebar.style.top = Math.round(sidebarTop) + 'px';
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!sidebarTicking) {
+        sidebarTicking = true;
+        requestAnimationFrame(updateSidebarPosition);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      sidebarTop = SIDEBAR_TOP_MAX;
+      updateSidebarPosition();
+    });
+  }
 });

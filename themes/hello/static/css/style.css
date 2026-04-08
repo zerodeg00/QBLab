@@ -1160,24 +1160,6 @@ img {
   position: sticky;
   top: 80px;
   align-self: flex-start;
-  max-height: calc(100vh - 80px);
-  overflow-y: auto;
-  padding-bottom: 1rem;
-  scrollbar-width: thin;
-  scrollbar-color: #d4d4d8 transparent;
-}
-
-.sidebar::-webkit-scrollbar {
-  width: 4px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
-  border-radius: 4px;
-}
-
-.sidebar::-webkit-scrollbar-track {
-  background: transparent;
 }
 
 .sidebar-widget {
