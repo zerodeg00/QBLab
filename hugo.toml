@@ -10,7 +10,7 @@ paginate = 12
 [params]
   author = '비트노마드'
   siteFullTitle = '큐비랩 - 비트노마드의 투자일지'
-  description = '큐비랩(QBLab) — 비트코인 자동매매 시스템을 직접 개발하고 운용하는 비트노마드의 투자일지. 매일 시장 분석과 실전 트레이딩 기록을 공유합니다.'
+  description = '큐비랩(QBLab) — 비트코인 자동매매 시스템을 직접 개발·운용하는 비트노마드의 투자일지. 매일 시장 분석과 매매 기록을 공유합니다.'
   ShowReadingTime = false
   ShowShareButtons = true
   ShowPostNavLinks = true
