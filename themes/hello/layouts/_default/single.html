@@ -72,16 +72,26 @@
   {{ if not .Params.disablepostnav }}
   <nav class="post-nav">
     {{ with .PrevInSection }}
-    <a href="{{ .Permalink }}" class="nav-prev">
-      <span class="nav-label">이전 글</span>
-      <span class="nav-title">{{ .Title }}</span>
-    </a>
+    <div class="nav-col">
+      <span class="nav-label">이전 포스트</span>
+      <a href="{{ .Permalink }}" class="nav-card">
+        <div class="nav-thumb{{ if not .Params.cover }} no-cover{{ end }}">
+          <img src="{{ with .Params.cover }}{{ . | relURL }}{{ else }}{{ "logo.png" | relURL }}{{ end }}" alt="" loading="lazy">
+        </div>
+        <span class="nav-title">{{ .Title }}</span>
+      </a>
+    </div>
     {{ end }}
     {{ with .NextInSection }}
-    <a href="{{ .Permalink }}" class="nav-next">
-      <span class="nav-label">다음 글</span>
-      <span class="nav-title">{{ .Title }}</span>
-    </a>
+    <div class="nav-col nav-col-next">
+      <span class="nav-label nav-label-next">다음 포스트</span>
+      <a href="{{ .Permalink }}" class="nav-card">
+        <div class="nav-thumb{{ if not .Params.cover }} no-cover{{ end }}">
+          <img src="{{ with .Params.cover }}{{ . | relURL }}{{ else }}{{ "logo.png" | relURL }}{{ end }}" alt="" loading="lazy">
+        </div>
+        <span class="nav-title">{{ .Title }}</span>
+      </a>
+    </div>
     {{ end }}
   </nav>
   {{ end }}
@@ -103,7 +113,7 @@
   {{ end }}
   {{ if gt (len $related) 0 }}
   <section class="related-posts">
-    <h3 class="related-title">관련글</h3>
+    <h3 class="related-title">관련 포스트</h3>
     <div class="related-grid">
       {{ range first 3 $related }}
       <a href="{{ .RelPermalink }}" class="related-card">
