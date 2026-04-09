@@ -988,8 +988,8 @@ img {
   margin-bottom: 1rem;
   border-radius: 12px;
   overflow: hidden;
-  background: url('/images/hero-bg.png') center/cover no-repeat;
-  aspect-ratio: 2012 / 781;
+  background: url('/images/hero-bg.png') center bottom / cover no-repeat;
+  aspect-ratio: 2012 / 580;
   display: flex;
   flex-direction: column;
   align-items: center;
