@@ -559,6 +559,7 @@ img {
   line-height: 1.9;
   color: #353438;
   word-break: keep-all;
+  overflow-x: auto;
 }
 
 .post-content h2 {
