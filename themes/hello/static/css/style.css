@@ -919,18 +919,28 @@ img {
 }
 
 .hero-title,
+.hero-subtitle,
 .hero-desc {
   position: relative;
   z-index: 1;
 }
 
 .hero-title {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   letter-spacing: -0.02em;
   text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.25);
 }
 
 .hero-desc {
@@ -1746,7 +1756,11 @@ img {
   }
 
   .hero-title {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
   }
 
   .briefing-grid {

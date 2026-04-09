@@ -65,8 +65,19 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": {{ $siteName | jsonify | safeJS }},
-      "alternateName": ["QBLab", "qblab.kr"],
+      "alternateName": ["QBLab", "qblab.kr", "큐비랩 자동매매", "비트노마드"],
       "url": "{{ .Site.Home.Permalink }}"
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": {{ $siteName | jsonify | safeJS }},
+      "alternateName": "QBLab",
+      "url": "{{ .Site.Home.Permalink }}",
+      "logo": "{{ "logo.png" | absURL }}",
+      "description": {{ .Site.Params.description | jsonify | safeJS }}
     }
   </script>
   {{ end }}
