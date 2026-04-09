@@ -63,8 +63,62 @@
     {{ .Content }}
   </div>
 
+  {{/* 큐비랩 tagline */}}
+  <blockquote class="site-tagline">
+    <p><strong>큐비랩</strong>은 자동매매 시스템을 직접 개발하고 운용하며, 시장 분석과 트레이딩 인사이트를 공유합니다.</p>
+  </blockquote>
+
+  {{/* 이전/다음글 */}}
+  {{ if not .Params.disablepostnav }}
+  <nav class="post-nav">
+    {{ with .PrevInSection }}
+    <a href="{{ .Permalink }}" class="nav-prev">
+      <span class="nav-label">이전 글</span>
+      <span class="nav-title">{{ .Title }}</span>
+    </a>
+    {{ end }}
+    {{ with .NextInSection }}
+    <a href="{{ .Permalink }}" class="nav-next">
+      <span class="nav-label">다음 글</span>
+      <span class="nav-title">{{ .Title }}</span>
+    </a>
+    {{ end }}
+  </nav>
+  {{ end }}
+
+  {{/* 관련글 (태그 기반) */}}
+  {{ $related := slice }}
+  {{ $currentTags := .Params.tags | default slice }}
+  {{ if gt (len $currentTags) 0 }}
+    {{ range where .Site.RegularPages "Permalink" "ne" .Permalink }}
+      {{ $pageTags := .Params.tags | default slice }}
+      {{ $matchCount := 0 }}
+      {{ range $pageTags }}
+        {{ if in $currentTags . }}{{ $matchCount = add $matchCount 1 }}{{ end }}
+      {{ end }}
+      {{ if gt $matchCount 1 }}
+        {{ $related = $related | append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ if gt (len $related) 0 }}
+  <section class="related-posts">
+    <h3 class="related-title">관련글</h3>
+    <div class="related-grid">
+      {{ range first 3 $related }}
+      <a href="{{ .RelPermalink }}" class="related-card">
+        <div class="related-thumb{{ if not .Params.cover }} no-cover{{ end }}">
+          <img src="{{ with .Params.cover }}{{ . | relURL }}{{ else }}{{ "logo.png" | relURL }}{{ end }}" alt="" loading="lazy">
+        </div>
+        <time class="related-date">{{ .Date.Format "2006-01-02" }}</time>
+        <h4 class="related-card-title">{{ .Title }}</h4>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
   {{ if not .Params.disableshare }}
-  {{/* 공유 버튼 */}}
   <div class="share-buttons">
     <span class="share-label">공유하기</span>
     <div class="share-icons">
@@ -126,23 +180,6 @@
     }
   })();
   </script>
-  {{ end }}
-
-  {{ if not .Params.disablepostnav }}
-  <nav class="post-nav">
-    {{ with .PrevInSection }}
-    <a href="{{ .Permalink }}" class="nav-prev">
-      <span class="nav-label">이전 글</span>
-      <span class="nav-title">{{ .Title }}</span>
-    </a>
-    {{ end }}
-    {{ with .NextInSection }}
-    <a href="{{ .Permalink }}" class="nav-next">
-      <span class="nav-label">다음 글</span>
-      <span class="nav-title">{{ .Title }}</span>
-    </a>
-    {{ end }}
-  </nav>
   {{ end }}
 
   {{ if not .Params.disablecomments }}
