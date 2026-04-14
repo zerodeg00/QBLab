@@ -45,8 +45,8 @@ def generate_dashboard(btc_price, btc_change, position, fear_greed, output_path)
     # === 파생 값 ===
     btc_change, btc_change_positive = _normalize_change(btc_change)
     pos_upper = position.upper()
-    is_long = pos_upper in ("LONG", "롱", "롱 매수")
-    is_short = pos_upper in ("SHORT", "숏", "숏 매수", "숏 보유", "숏 보유 중")
+    is_long = pos_upper in ("LONG", "롱", "롱 매수", "롱 보유")
+    is_short = pos_upper in ("SHORT", "숏", "숏 매수", "숏 보유", "숏 매도")
 
     if is_long:
         pos_label = "포지션 — 롱"
