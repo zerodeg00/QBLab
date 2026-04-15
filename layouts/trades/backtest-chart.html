@@ -1,0 +1,153 @@
+{{ define "main" }}
+<style>
+  /* 차트 페이지 전용 — 콘텐츠 영역 확장 */
+  .site-main { max-width: 1200px !important; width: 100%; }
+
+  .chart-page-header { margin-bottom: 20px; }
+  .chart-page-header h1 { font-size: 1.6rem; margin: 0 0 6px; }
+  .chart-page-header .subtitle { color: #777; font-size: 0.88rem; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin: 16px 0 20px;
+  }
+  .stat-card {
+    background: #f8f9fa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 12px 10px;
+    text-align: center;
+  }
+  .stat-card .label {
+    font-size: 0.72rem;
+    color: #888;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
+  .stat-card .value {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1e1f21;
+  }
+  .stat-card .value.pos { color: #26a69a; }
+  .stat-card .value.neg { color: #ef5350; }
+
+  .chart-box {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .chart-box-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 14px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #555;
+  }
+  .chart-box-label .legend {
+    display: flex;
+    gap: 14px;
+    font-weight: 400;
+    font-size: 0.75rem;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .legend-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .legend-dot.circle { border-radius: 50%; }
+
+  #price-chart { height: 520px; }
+  #equity-chart { height: 260px; }
+
+  .chart-footer {
+    font-size: 0.78rem;
+    color: #999;
+    margin-top: 16px;
+    line-height: 1.7;
+  }
+  .chart-footer a { color: #5c6bc0; }
+
+  /* 로딩 */
+  .chart-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: #aaa;
+    font-size: 0.9rem;
+  }
+  .chart-error {
+    padding: 40px;
+    text-align: center;
+    color: #ef5350;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 900px) {
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    #price-chart { height: 360px; }
+    #equity-chart { height: 200px; }
+  }
+</style>
+
+<div class="chart-page-header">
+  <h1>{{ .Title }}</h1>
+  <p class="subtitle">BTC/USDT 바이낸스 선물 · 자동매매 시스템 백테스트 결과</p>
+</div>
+
+<div id="stats-container" class="stats-grid">
+  <div class="stat-card"><div class="label">로딩 중...</div><div class="value">-</div></div>
+</div>
+
+{{/* ── 가격 차트 ── */}}
+<div class="chart-box">
+  <div class="chart-box-label">
+    <span>BTC/USDT 일봉 — 매매 시점</span>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#26a69a"></div>롱 진입</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ef5350"></div>숏 진입</div>
+      <div class="legend-item"><div class="legend-dot circle" style="background:#2196f3"></div>수익 청산</div>
+      <div class="legend-item"><div class="legend-dot circle" style="background:#ff9800"></div>손실 청산</div>
+    </div>
+  </div>
+  <div id="price-chart"><div class="chart-loading">차트 데이터를 불러오는 중...</div></div>
+</div>
+
+{{/* ── Equity 곡선 ── */}}
+<div class="chart-box">
+  <div class="chart-box-label">
+    <span>누적 수익 곡선 (로그 스케일)</span>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#5c6bc0"></div>누적 수익</div>
+    </div>
+  </div>
+  <div id="equity-chart"></div>
+</div>
+
+<div class="chart-footer">
+  <p>이 차트는 백테스트 결과를 기반으로 생성되었습니다. 실제 매매 결과와 다를 수 있습니다.</p>
+  <p>실제 매매내역은 <a href="/trades/binance/">여기</a>에서 확인할 수 있습니다.</p>
+  <p id="generated-at"></p>
+</div>
+
+<script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js" defer></script>
+<script src="{{ "js/backtest-chart.js" | relURL }}" defer></script>
+{{ end }}

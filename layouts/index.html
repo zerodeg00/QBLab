@@ -1,10 +1,104 @@
 {{ define "main" }}
-<!-- Hero Banner -->
-<section class="hero-banner">
-  <h1 class="hero-title">큐비랩</h1>
-  <p class="hero-subtitle">기록으로 만드는 경제적 자유</p>
-  <p class="hero-desc">매일 아침 9시 15분, 시장 분석 업데이트</p>
+<!-- Hero + Chart -->
+<div class="home-chart-hero">
+  <p class="home-chart-hero-sub"><span class="hero-accent">기록으로 만드는 경제적 자유</span> <span class="hero-sep">·</span> <span class="hero-update">매일 아침 9시 15분 업데이트</span></p>
+</div>
+<section class="home-chart-section">
+  <div class="home-chart-header">
+    <span class="home-chart-title">BTC/USDT 자동매매 백테스트</span>
+    <div class="home-chart-legend">
+      <span class="hcl-item"><span class="hcl-dot" style="background:#26a69a"></span>롱</span>
+      <span class="hcl-item"><span class="hcl-dot" style="background:#ef5350"></span>숏</span>
+      <span class="hcl-item"><span class="hcl-dot hcl-circle" style="background:#2196f3"></span>수익</span>
+      <span class="hcl-item"><span class="hcl-dot hcl-circle" style="background:#ff9800"></span>손실</span>
+    </div>
+  </div>
+  <div id="home-chart"></div>
+  <div id="home-chart-stats" class="home-chart-stats"></div>
+  <a href="/trades/backtest-chart/" class="home-chart-link">백테스트 차트 자세히 보기 &rarr;</a>
 </section>
+<style>
+  .home-chart-section {
+    background: #fafbfc;
+    border: 1px solid #e8e8ec;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .home-chart-hero {
+    margin-top: -6px;
+    padding: 0 0 8px;
+  }
+  .home-chart-hero-sub {
+    font-size: 0.95rem;
+    color: #999;
+    letter-spacing: 0.02em;
+  }
+  .hero-accent {
+    color: #1e1f21;
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+  .hero-sep {
+    margin: 0 2px;
+    color: #ccc;
+  }
+  .home-chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 14px;
+    border-bottom: 1px solid #eee;
+  }
+  .home-chart-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #444;
+  }
+  .home-chart-legend {
+    display: flex;
+    gap: 10px;
+    font-size: 0.7rem;
+    color: #888;
+  }
+  .hcl-item { display: flex; align-items: center; gap: 3px; }
+  .hcl-dot { width: 8px; height: 8px; border-radius: 2px; }
+  .hcl-dot.hcl-circle { border-radius: 50%; }
+  #home-chart { height: 300px; }
+  .home-chart-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 14px;
+    font-size: 0.78rem;
+    color: #555;
+    border-top: 1px solid #eee;
+  }
+  .hc-stat b { font-weight: 700; }
+  .hc-pos { color: #26a69a; }
+  .hc-neg { color: #ef5350; }
+  .hc-divider { width: 1px; height: 14px; background: #ddd; }
+  .home-chart-link {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    font-size: 0.78rem;
+    color: #5c6bc0;
+    font-weight: 600;
+    border-top: 1px solid #eee;
+    transition: background .15s;
+  }
+  .home-chart-link:hover { background: #f0f0f4; }
+  @media (max-width: 600px) {
+    #home-chart { height: 220px; }
+    .home-chart-legend { display: none; }
+    .hero-sep { display: none; }
+    .hero-update { display: block; margin-top: 2px; }
+  }
+</style>
+<script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js" defer></script>
+<script src="{{ "js/home-chart.js" | relURL }}" defer></script>
 
 {{ $posts := slice }}
 {{ range .Site.RegularPages }}
