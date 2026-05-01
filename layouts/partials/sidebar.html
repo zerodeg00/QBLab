@@ -22,6 +22,9 @@
   {{ else if eq $posTag "숏 매수" }}
     {{ $posLabel = "숏" }}
     {{ $posClass = "pos-short" }}
+  {{ else if or (eq $posTag "롱 매도") (eq $posTag "숏 매도") (eq $posTag "관망") }}
+    {{ $posLabel = "관망" }}
+    {{ $posClass = "pos-neutral" }}
   {{ else if or (eq $posTag "숏 보유") }}
     {{ $posLabel = "숏" }}
     {{ $posClass = "pos-short" }}
