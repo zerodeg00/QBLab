@@ -27,8 +27,8 @@
 
   <!-- 포지션 (중앙) -->
   <text x="900" y="720" text-anchor="middle"
-        font-size="72" font-weight="700" fill="#6B7280">
-    포지션 — 없음
+        font-size="72" font-weight="700" fill="#10B981">
+    포지션 — 롱
   </text>
 
   <!-- 공포지수 (중앙) -->
