@@ -1,12 +1,12 @@
 /**
- * 홈페이지 미니 백테스트 차트
- * - BTC/USDT 일봉 + 매매 마커
- * - 컴팩트 버전 (Equity 곡선 없음)
+ * 홈페이지 실거래 차트
+ * - BTC/USDT 일봉 + Google Sheets 기반 실거래 결과 마커
+ * - 공개 가능 항목만 사용
  */
 (async function () {
   'use strict';
 
-  var DATA_URL = '/data/backtest-binance.json';
+  var DATA_URL = '/data/live-binance-trades.json';
   var container = document.getElementById('home-chart');
   var statsEl = document.getElementById('home-chart-stats');
   if (!container) return;
@@ -25,16 +25,15 @@
 
   // ── Stats ──
   if (statsEl) {
-    var s = data.stats.combined;
-    var monthlyAvg = (Math.pow(s.roi_pct / 100 + 1, 1 / s.total_months) - 1) * 100;
+    var s = data.stats;
     statsEl.innerHTML =
-      '<span class="hc-stat">월평균 <b class="hc-pos">+' + monthlyAvg.toFixed(1) + '%</b></span>' +
+      '<span class="hc-stat">월평균 <b class="hc-pos">+' + s.monthly_avg.toFixed(1) + '%</b></span>' +
       '<span class="hc-divider"></span>' +
-      '<span class="hc-stat"><b>' + s.trades.toLocaleString() + '</b>건</span>' +
+      '<span class="hc-stat"><b>' + s.total_trades.toLocaleString() + '</b>건</span>' +
       '<span class="hc-divider"></span>' +
       '<span class="hc-stat">승률 <b>' + s.win_rate.toFixed(1) + '%</b></span>' +
       '<span class="hc-divider"></span>' +
-      '<span class="hc-stat">MDD <b class="hc-neg">' + s.mdd_pct.toFixed(1) + '%</b></span>';
+      '<span class="hc-stat">MDD <b class="hc-neg">' + s.mdd.toFixed(1) + '%</b></span>';
   }
 
   // ── 차트 ──
@@ -80,29 +79,21 @@
   });
   candleSeries.setData(data.candles);
 
-  // ── 매매 마커 ──
+  // ── 일별 실거래 결과 마커 ──
   var markers = [];
-  for (var i = 0; i < data.daily_trades.length; i++) {
-    var t = data.daily_trades[i];
-    if (t.entry_time) {
-      markers.push({
-        time: t.entry_time,
-        position: t.side === 'long' ? 'belowBar' : 'aboveBar',
-        color: t.side === 'long' ? '#26a69a' : '#ef5350',
-        shape: t.side === 'long' ? 'arrowUp' : 'arrowDown',
-        text: t.side === 'long' ? 'L' : 'S',
-      });
-    }
-    if (t.exit_time && t.exit_type !== 'holding') {
-      var isProfit = t.roi_pct > 0;
-      markers.push({
-        time: t.exit_time,
-        position: t.side === 'long' ? 'aboveBar' : 'belowBar',
-        color: isProfit ? '#2196f3' : '#ff9800',
-        shape: 'circle',
-        text: (t.roi_pct >= 0 ? '+' : '') + t.roi_pct.toFixed(1) + '%',
-      });
-    }
+  for (var i = 0; i < data.daily_markers.length; i++) {
+    var t = data.daily_markers[i];
+    var isProfit = t.roi > 0;
+    var isFlat = t.roi === 0;
+    var label = (t.roi >= 0 ? '+' : '') + t.roi.toFixed(1) + '%';
+    if (t.trades > 1) label += ' x' + t.trades;
+    markers.push({
+      time: t.time,
+      position: isProfit ? 'aboveBar' : 'belowBar',
+      color: isFlat ? '#888888' : isProfit ? '#26a69a' : '#ef5350',
+      shape: 'circle',
+      text: label,
+    });
   }
   markers.sort(function (a, b) {
     return a.time < b.time ? -1 : a.time > b.time ? 1 : 0;
