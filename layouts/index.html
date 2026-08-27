@@ -1,27 +1,29 @@
 {{ define "main" }}
 <section class="zero-hero">
-  <p class="zero-kicker">ZERODEG</p>
-  <h1>일하고, 만들고, 살아가며 배운 것들.</h1>
-  <p class="zero-intro">개발, AI, 투자 그리고 일상에서 직접 경험하고 생각한 것들을 기록합니다. 특정 주제보다 한 사람의 입체적인 삶을 오래 남기는 공간을 지향합니다.</p>
+  <p class="zero-kicker">제로덱</p>
+  <h1>일하고, 만들고, 살아가며 배운 것들</h1>
+  <p class="zero-intro">개발, AI, 투자 그리고 일상에서 직접 경험하고 생각한 것들을 기록합니다. 특정 주제 하나보다 한 사람의 삶을 여러 각도에서 오래 남기는 공간을 지향합니다.</p>
 </section>
 
-<section class="zero-categories" aria-label="주요 카테고리">
-  <a href="/life/" class="zero-category">
-    <span>Life</span>
-    <p>일상, 생각, 독서, 운동 그리고 시간이 지나며 달라지는 것들.</p>
-  </a>
-  <a href="/work/" class="zero-category">
-    <span>Work</span>
-    <p>개발자로 일하며 해결한 문제와 제품을 만들어가는 과정.</p>
-  </a>
-  <a href="/money/" class="zero-category">
-    <span>Money</span>
-    <p>투자, 자동매매 그리고 돈을 다루며 직접 겪고 배운 기록.</p>
-  </a>
-  <a href="/ai/" class="zero-category">
-    <span>AI</span>
-    <p>AI 도구를 직접 사용하고 일과 삶에 적용하며 얻은 경험.</p>
-  </a>
+<section class="zero-sections" aria-label="주요 카테고리">
+  <div class="zero-section-list">
+    <a href="/life/" class="zero-section-item">
+      <strong>Life</strong>
+      <span>일상, 생각, 독서, 운동 그리고 시간이 지나며 달라지는 것들</span>
+    </a>
+    <a href="/work/" class="zero-section-item">
+      <strong>Work</strong>
+      <span>개발자로 일하며 해결한 문제와 제품을 만들어가는 과정</span>
+    </a>
+    <a href="/money/" class="zero-section-item">
+      <strong>Money</strong>
+      <span>투자, 자동매매 그리고 돈을 다루며 직접 겪고 배운 기록</span>
+    </a>
+    <a href="/ai/" class="zero-section-item">
+      <strong>AI</strong>
+      <span>AI 도구를 직접 사용하고 일과 삶에 적용하며 얻은 경험</span>
+    </a>
+  </div>
 </section>
 
 {{ $writing := slice }}
@@ -36,15 +38,15 @@
     <h2 class="section-title">Latest Writing</h2>
   </div>
   {{ if gt (len $writing) 0 }}
-  <div class="briefing-grid">
+  <div class="zero-latest-list">
     {{ range first 9 $writing }}
-    <a href="{{ .RelPermalink }}" class="briefing-card">
-      <div class="briefing-thumb{{ if not .Params.cover }} no-cover{{ end }}">
-        <img src="{{ with .Params.cover }}{{ . | relURL }}{{ else }}{{ "logo.png" | relURL }}{{ end }}" alt="" loading="lazy">
-      </div>
-      <time class="briefing-date">{{ .Date.Format "2006-01-02" }}</time>
-      <h3 class="briefing-title">{{ .Title }}</h3>
-    </a>
+    <article class="zero-latest-item">
+      <a href="{{ .RelPermalink }}">
+        <time>{{ .Date.Format "2006-01-02" }}</time>
+        <h3>{{ .Title }}</h3>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+      </a>
+    </article>
     {{ end }}
   </div>
   {{ else }}
@@ -58,7 +60,7 @@
   <div class="zero-archive-head">
     <div>
       <p class="zero-kicker">MONEY ARCHIVE</p>
-      <h2>자동매매 기록은 그대로 남깁니다.</h2>
+      <h2>자동매매 기록은 그대로 남깁니다</h2>
       <p>기존 QBLab에서 쌓아온 데일리·월간 리포트와 실매매 기록은 과거를 지우지 않고 하나의 투자 아카이브로 보존합니다.</p>
     </div>
     <div class="zero-archive-links">
@@ -78,23 +80,34 @@
 </section>
 
 <style>
-  .zero-hero { padding: 18px 0 28px; max-width: 760px; }
-  .zero-kicker { margin: 0 0 8px; font-size: .72rem; font-weight: 800; letter-spacing: .16em; color: #8a8a92; }
-  .zero-hero h1 { margin: 0; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.12; letter-spacing: -.045em; color: #18191b; }
-  .zero-intro { margin: 18px 0 0; max-width: 650px; color: #666; line-height: 1.8; font-size: 1rem; }
-  .zero-categories { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 8px 0 36px; }
-  .zero-category { display: block; padding: 18px; border: 1px solid #e8e8ec; border-radius: 12px; background: #fafbfc; transition: transform .15s, border-color .15s; }
-  .zero-category:hover { transform: translateY(-2px); border-color: #cfcfd6; }
-  .zero-category span { font-size: 1rem; font-weight: 800; color: #222; }
-  .zero-category p { margin: 9px 0 0; font-size: .82rem; line-height: 1.6; color: #777; }
+  .zero-hero { padding: 8px 0 26px; max-width: 760px; }
+  .zero-kicker { margin: 0 0 7px; font-size: .74rem; font-weight: 700; letter-spacing: .08em; color: #8a8a92; }
+  .zero-hero h1 { margin: 0; font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.35; letter-spacing: -.025em; color: #18191b; }
+  .zero-intro { margin: 14px 0 0; max-width: 680px; color: #666; line-height: 1.8; font-size: .96rem; }
+
+  .zero-sections { margin: 4px 0 42px; }
+  .zero-section-list { border-top: 1px solid #e8e8ec; }
+  .zero-section-item { display: grid; grid-template-columns: 110px 1fr; gap: 20px; align-items: baseline; padding: 16px 2px; border-bottom: 1px solid #e8e8ec; color: inherit; text-decoration: none; transition: padding-left .15s, color .15s; }
+  .zero-section-item:hover { padding-left: 6px; }
+  .zero-section-item strong { font-size: .98rem; font-weight: 750; color: #222; }
+  .zero-section-item span { font-size: .9rem; line-height: 1.65; color: #777; }
+
   .zero-writing { margin-top: 0; }
-  .zero-empty { padding: 22px; border: 1px dashed #d9d9de; border-radius: 10px; color: #888; font-size: .9rem; }
-  .zero-archive { margin-top: 44px; padding-top: 30px; border-top: 1px solid #ececef; }
+  .zero-latest-list { border-top: 1px solid #ececef; }
+  .zero-latest-item { border-bottom: 1px solid #ececef; padding: 17px 2px; }
+  .zero-latest-item a { display: block; color: inherit; text-decoration: none; }
+  .zero-latest-item time { display: block; margin-bottom: 5px; font-size: .78rem; color: #999; }
+  .zero-latest-item h3 { margin: 0; font-size: 1.02rem; line-height: 1.5; color: #222; }
+  .zero-latest-item p { margin: 7px 0 0; font-size: .88rem; line-height: 1.65; color: #777; }
+  .zero-empty { padding: 20px 0; border-top: 1px solid #ececef; border-bottom: 1px solid #ececef; color: #888; font-size: .9rem; }
+
+  .zero-archive { margin-top: 48px; padding-top: 30px; border-top: 1px solid #ececef; }
   .zero-archive-head { display: flex; justify-content: space-between; gap: 28px; align-items: flex-end; margin-bottom: 14px; }
-  .zero-archive-head h2 { margin: 0 0 8px; font-size: 1.25rem; color: #222; }
+  .zero-archive-head h2 { margin: 0 0 8px; font-size: 1.18rem; color: #222; }
   .zero-archive-head p:not(.zero-kicker) { margin: 0; max-width: 620px; color: #777; font-size: .88rem; line-height: 1.65; }
-  .zero-archive-links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
-  .zero-archive-links a { white-space: nowrap; padding: 7px 10px; border: 1px solid #e1e1e6; border-radius: 999px; font-size: .76rem; color: #555; }
+  .zero-archive-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-end; }
+  .zero-archive-links a { white-space: nowrap; font-size: .78rem; color: #555; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #cfcfd6; }
+
   .home-chart-section { background: #fafbfc; border: 1px solid #e8e8ec; border-radius: 10px; overflow: hidden; margin-bottom: 1rem; }
   .home-chart-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; border-bottom: 1px solid #eee; }
   .home-chart-title { font-size: .82rem; font-weight: 700; color: #555; }
@@ -106,14 +119,16 @@
   .hc-divider { width: 1px; height: 14px; background: #ddd; }
   .home-chart-link { display: block; text-align: center; padding: 8px; font-size: .78rem; color: #5c6bc0; font-weight: 600; border-top: 1px solid #eee; transition: background .15s; }
   .home-chart-link:hover { background: #f0f0f4; }
+
   @media (max-width: 760px) {
-    .zero-categories { grid-template-columns: repeat(2, 1fr); }
+    .zero-section-item { grid-template-columns: 82px 1fr; gap: 14px; }
     .zero-archive-head { display: block; }
     .zero-archive-links { justify-content: flex-start; margin-top: 14px; }
   }
   @media (max-width: 480px) {
-    .zero-categories { grid-template-columns: 1fr; }
-    .zero-hero { padding-top: 8px; }
+    .zero-hero { padding-top: 4px; }
+    .zero-section-item { display: block; }
+    .zero-section-item span { display: block; margin-top: 5px; }
     #home-chart { height: 220px; }
   }
 </style>
