@@ -1,6 +1,6 @@
 baseURL = 'https://zerodeg.kr/'
 languageCode = 'ko'
-title = 'zerodeg'
+title = '제로덱'
 theme = 'hello'
 paginate = 12
 [services]
@@ -8,8 +8,8 @@ paginate = 12
     ID = 'G-TNCCE8KVLR'
 
 [params]
-  author = 'zerodeg'
-  siteFullTitle = 'zerodeg - 일하고, 만들고, 투자하고, 살아가는 기록'
+  author = '제로덱'
+  siteFullTitle = '제로덱 - 일하고, 만들고, 살아가는 기록'
   description = '개발자로 일하고, AI를 사용하고, 투자하고, 살아가며 배운 것들을 기록합니다.'
   ShowReadingTime = false
   ShowShareButtons = true
@@ -31,8 +31,8 @@ paginate = 12
 
 [params.sidebar]
   avatar = '/images/profile.png'
-  nickname = 'zerodeg'
-  bio = '개발하고, 투자하고, 생각하며 살아가는 기록.'
+  nickname = '제로덱'
+  bio = '개발, AI, 투자 그리고 일상을 기록합니다.'
 
 [params.cover]
   hidden = false
@@ -75,4 +75,4 @@ paginate = 12
   favicon = '/favicon.ico'
 
 [params.footer]
-  copyright = '© 2026 zerodeg. All rights reserved.'
+  copyright = '© 2026 제로덱. All rights reserved.'
