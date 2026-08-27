@@ -1,6 +1,6 @@
-baseURL = 'https://qblab.kr/'
+baseURL = 'https://zerodeg.kr/'
 languageCode = 'ko'
-title = '큐비랩'
+title = 'zerodeg'
 theme = 'hello'
 paginate = 12
 [services]
@@ -8,9 +8,9 @@ paginate = 12
     ID = 'G-TNCCE8KVLR'
 
 [params]
-  author = '비트노마드'
-  siteFullTitle = '큐비랩 - 비트노마드의 투자일지'
-  description = '큐비랩(QBLab) — 비트코인 자동매매 시스템을 직접 개발·운용하는 비트노마드의 투자일지. 매일 시장 분석과 매매 기록을 공유합니다.'
+  author = 'zerodeg'
+  siteFullTitle = 'zerodeg - 일하고, 만들고, 투자하고, 살아가는 기록'
+  description = '개발자로 일하고, AI를 사용하고, 투자하고, 살아가며 배운 것들을 기록합니다.'
   ShowReadingTime = false
   ShowShareButtons = true
   ShowPostNavLinks = true
@@ -22,8 +22,8 @@ paginate = 12
   kakaoJsKey = '49818f3b6047e6d3f00605a784c70a12'
 
   [params.homeInfoParams]
-    Title = '기록으로 만드는 경제적 자유'
-    Content = '큐비랩 — 비트코인 자동매매 시스템을 직접 개발하고 운용하는 비트노마드의 투자일지.<br>매일 시장 분석과 실전 트레이딩 기록을 공유합니다.'
+    Title = '일하고, 만들고, 살아가는 기록'
+    Content = '개발, AI, 투자 그리고 일상에서 직접 경험하고 배운 것들을 기록합니다.'
 
   [[params.socialIcons]]
     name = 'github'
@@ -31,8 +31,8 @@ paginate = 12
 
 [params.sidebar]
   avatar = '/images/profile.png'
-  nickname = '비트노마드'
-  bio = '비트코인 자동매매로 경제적 자유를 이루고 싶은 비트노마드입니다.'
+  nickname = 'zerodeg'
+  bio = '개발하고, 투자하고, 생각하며 살아가는 기록.'
 
 [params.cover]
   hidden = false
@@ -47,37 +47,32 @@ paginate = 12
       unsafe = true
 
 [[menus.main]]
-  name = '홈'
-  url = '/'
+  name = 'Life'
+  url = '/life/'
   weight = 1
 
 [[menus.main]]
-  name = '데일리 레포트'
-  url = '/posts/'
+  name = 'Work'
+  url = '/work/'
   weight = 2
 
 [[menus.main]]
-  name = '월간 레포트'
-  url = '/monthly/'
+  name = 'Money'
+  url = '/money/'
   weight = 3
 
 [[menus.main]]
-  name = '매매내역'
-  url = '/trades/'
+  name = 'AI'
+  url = '/ai/'
   weight = 4
 
 [[menus.main]]
-  name = '소개'
+  name = 'About'
   url = '/about/'
   weight = 5
-
-[[menus.main]]
-  name = '태그'
-  url = '/tags/'
-  weight = 6
 
 [params.assets]
   favicon = '/favicon.ico'
 
 [params.footer]
-  copyright = '© 2026 큐비랩. All rights reserved.'
+  copyright = '© 2026 zerodeg. All rights reserved.'

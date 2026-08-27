@@ -1,156 +1,43 @@
 {{ define "main" }}
-<!-- Hero + Chart -->
-<div class="home-chart-hero">
-  <p class="home-chart-hero-sub"><span class="hero-accent">기록으로 만드는 경제적 자유</span> <span class="hero-sep">·</span> <span class="hero-update">매일 아침 9시 15분 업데이트</span></p>
-</div>
-<section class="home-chart-section">
-  <div class="home-chart-header">
-    <span class="home-chart-title">BTC/USDT 자동매매 실거래</span>
-    <div class="home-chart-legend">
-      <span class="hcl-item"><span class="hcl-dot" style="background:#26a69a"></span>상승일</span>
-      <span class="hcl-item"><span class="hcl-dot" style="background:#ef5350"></span>하락일</span>
-      <span class="hcl-item"><span class="hcl-dot hcl-circle" style="background:#26a69a"></span>수익</span>
-      <span class="hcl-item"><span class="hcl-dot hcl-circle" style="background:#ef5350"></span>손실</span>
-    </div>
-  </div>
-  <div id="home-chart"></div>
-  <div id="home-chart-stats" class="home-chart-stats"></div>
-  <a href="/trades/binance/" class="home-chart-link">실매매 내역 자세히 보기 &rarr;</a>
+<section class="zero-hero">
+  <p class="zero-kicker">ZERODEG</p>
+  <h1>일하고, 만들고, 살아가며 배운 것들.</h1>
+  <p class="zero-intro">개발, AI, 투자 그리고 일상에서 직접 경험하고 생각한 것들을 기록합니다. 특정 주제보다 한 사람의 입체적인 삶을 오래 남기는 공간을 지향합니다.</p>
 </section>
-<style>
-  .home-chart-section {
-    background: #fafbfc;
-    border: 1px solid #e8e8ec;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-  }
-  .home-chart-hero {
-    margin-top: -6px;
-    padding: 0 0 8px;
-  }
-  .home-chart-hero-sub {
-    font-size: 0.95rem;
-    color: #999;
-    letter-spacing: 0.02em;
-  }
-  .hero-accent {
-    color: #1e1f21;
-    font-weight: 700;
-    font-size: 1.05rem;
-  }
-  .hero-sep {
-    margin: 0 2px;
-    color: #ccc;
-  }
-  .home-chart-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 14px;
-    border-bottom: 1px solid #eee;
-  }
-  .home-chart-title {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #444;
-  }
-  .home-chart-legend {
-    display: flex;
-    gap: 10px;
-    font-size: 0.7rem;
-    color: #888;
-  }
-  .hcl-item { display: flex; align-items: center; gap: 3px; }
-  .hcl-dot { width: 8px; height: 8px; border-radius: 2px; }
-  .hcl-dot.hcl-circle { border-radius: 50%; }
-  #home-chart { height: 300px; }
-  .home-chart-stats {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 8px 14px;
-    font-size: 0.78rem;
-    color: #555;
-    border-top: 1px solid #eee;
-  }
-  .hc-stat b { font-weight: 700; }
-  .hc-pos { color: #26a69a; }
-  .hc-neg { color: #ef5350; }
-  .hc-divider { width: 1px; height: 14px; background: #ddd; }
-  .home-chart-link {
-    display: block;
-    text-align: center;
-    padding: 8px;
-    font-size: 0.78rem;
-    color: #5c6bc0;
-    font-weight: 600;
-    border-top: 1px solid #eee;
-    transition: background .15s;
-  }
-  .home-chart-link:hover { background: #f0f0f4; }
-  @media (max-width: 600px) {
-    #home-chart { height: 220px; }
-    .home-chart-legend { display: none; }
-    .home-chart-hero-sub {
-      line-height: 1.3;
-    }
-    .hero-sep { display: none; }
-    .hero-update {
-      display: block;
-      margin-top: 1px;
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
-    }
-  }
-</style>
-<script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js" defer></script>
-<script src="{{ "js/home-chart.js" | relURL }}" defer></script>
 
-{{ $posts := slice }}
-{{ range .Site.RegularPages }}
-  {{ if not .Params.unlisted }}
-    {{ $posts = $posts | append . }}
+<section class="zero-categories" aria-label="주요 카테고리">
+  <a href="/life/" class="zero-category">
+    <span>Life</span>
+    <p>일상, 생각, 독서, 운동 그리고 시간이 지나며 달라지는 것들.</p>
+  </a>
+  <a href="/work/" class="zero-category">
+    <span>Work</span>
+    <p>개발자로 일하며 해결한 문제와 제품을 만들어가는 과정.</p>
+  </a>
+  <a href="/money/" class="zero-category">
+    <span>Money</span>
+    <p>투자, 자동매매 그리고 돈을 다루며 직접 겪고 배운 기록.</p>
+  </a>
+  <a href="/ai/" class="zero-category">
+    <span>AI</span>
+    <p>AI 도구를 직접 사용하고 일과 삶에 적용하며 얻은 경험.</p>
+  </a>
+</section>
+
+{{ $writing := slice }}
+{{ range .Site.RegularPages.ByDate.Reverse }}
+  {{ if and (not .Params.unlisted) (not (in (slice "posts" "monthly" "trades" "about") .Section)) }}
+    {{ $writing = $writing | append . }}
   {{ end }}
 {{ end }}
 
-<!-- Featured Post (최신 1개) -->
-{{ with index $posts 0 }}
-<section class="home-section">
-  <a href="{{ .RelPermalink }}" class="featured-post">
-    <div class="featured-thumb{{ if not .Params.cover }} no-cover{{ end }}">
-      <img src="{{ with .Params.cover }}{{ . | relURL }}{{ else }}{{ "logo.png" | relURL }}{{ end }}" alt="" loading="lazy">
-    </div>
-    <div class="featured-info">
-      <span class="featured-badge">NEW</span>
-      <h2 class="featured-title">{{ .Title }}</h2>
-      {{ with .Description }}<p class="featured-desc">{{ . }}</p>{{ end }}
-      <div class="featured-meta">
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-        {{ with (default .Site.Params.author .Params.author) }}<span>· {{ . }}</span>{{ end }}
-      </div>
-      {{ with .Params.tags }}
-      <div class="featured-tags">
-        {{ range first 5 . }}<span class="tag">#{{ . }}</span>{{ end }}
-      </div>
-      {{ end }}
-    </div>
-  </a>
-</section>
-{{ end }}
-
-<!-- Latest Posts (2번째부터) -->
-{{ $rest := after 1 $posts }}
-<section class="home-section">
+<section class="home-section zero-writing">
   <div class="section-header">
-    <h2 class="section-title">최신 글</h2>
-    {{ if gt (len $rest) 9 }}
-    <a href="/search/" class="btn-more">더보기 &rarr;</a>
-    {{ end }}
+    <h2 class="section-title">Latest Writing</h2>
   </div>
+  {{ if gt (len $writing) 0 }}
   <div class="briefing-grid">
-    {{ range first 9 $rest }}
+    {{ range first 9 $writing }}
     <a href="{{ .RelPermalink }}" class="briefing-card">
       <div class="briefing-thumb{{ if not .Params.cover }} no-cover{{ end }}">
         <img src="{{ with .Params.cover }}{{ . | relURL }}{{ else }}{{ "logo.png" | relURL }}{{ end }}" alt="" loading="lazy">
@@ -160,5 +47,76 @@
     </a>
     {{ end }}
   </div>
+  {{ else }}
+  <div class="zero-empty">
+    <p>이 공간에는 앞으로 직접 경험하고 생각한 글을 차곡차곡 쌓아갑니다.</p>
+  </div>
+  {{ end }}
 </section>
+
+<section class="zero-archive">
+  <div class="zero-archive-head">
+    <div>
+      <p class="zero-kicker">MONEY ARCHIVE</p>
+      <h2>자동매매 기록은 그대로 남깁니다.</h2>
+      <p>기존 QBLab에서 쌓아온 데일리·월간 리포트와 실매매 기록은 과거를 지우지 않고 하나의 투자 아카이브로 보존합니다.</p>
+    </div>
+    <div class="zero-archive-links">
+      <a href="/posts/">데일리 리포트</a>
+      <a href="/monthly/">월간 리포트</a>
+      <a href="/trades/">매매내역</a>
+    </div>
+  </div>
+  <div class="home-chart-section">
+    <div class="home-chart-header">
+      <span class="home-chart-title">BTC/USDT 자동매매 실거래</span>
+    </div>
+    <div id="home-chart"></div>
+    <div id="home-chart-stats" class="home-chart-stats"></div>
+    <a href="/trades/binance/" class="home-chart-link">실매매 내역 자세히 보기 &rarr;</a>
+  </div>
+</section>
+
+<style>
+  .zero-hero { padding: 18px 0 28px; max-width: 760px; }
+  .zero-kicker { margin: 0 0 8px; font-size: .72rem; font-weight: 800; letter-spacing: .16em; color: #8a8a92; }
+  .zero-hero h1 { margin: 0; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.12; letter-spacing: -.045em; color: #18191b; }
+  .zero-intro { margin: 18px 0 0; max-width: 650px; color: #666; line-height: 1.8; font-size: 1rem; }
+  .zero-categories { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 8px 0 36px; }
+  .zero-category { display: block; padding: 18px; border: 1px solid #e8e8ec; border-radius: 12px; background: #fafbfc; transition: transform .15s, border-color .15s; }
+  .zero-category:hover { transform: translateY(-2px); border-color: #cfcfd6; }
+  .zero-category span { font-size: 1rem; font-weight: 800; color: #222; }
+  .zero-category p { margin: 9px 0 0; font-size: .82rem; line-height: 1.6; color: #777; }
+  .zero-writing { margin-top: 0; }
+  .zero-empty { padding: 22px; border: 1px dashed #d9d9de; border-radius: 10px; color: #888; font-size: .9rem; }
+  .zero-archive { margin-top: 44px; padding-top: 30px; border-top: 1px solid #ececef; }
+  .zero-archive-head { display: flex; justify-content: space-between; gap: 28px; align-items: flex-end; margin-bottom: 14px; }
+  .zero-archive-head h2 { margin: 0 0 8px; font-size: 1.25rem; color: #222; }
+  .zero-archive-head p:not(.zero-kicker) { margin: 0; max-width: 620px; color: #777; font-size: .88rem; line-height: 1.65; }
+  .zero-archive-links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+  .zero-archive-links a { white-space: nowrap; padding: 7px 10px; border: 1px solid #e1e1e6; border-radius: 999px; font-size: .76rem; color: #555; }
+  .home-chart-section { background: #fafbfc; border: 1px solid #e8e8ec; border-radius: 10px; overflow: hidden; margin-bottom: 1rem; }
+  .home-chart-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; border-bottom: 1px solid #eee; }
+  .home-chart-title { font-size: .82rem; font-weight: 700; color: #555; }
+  #home-chart { height: 260px; }
+  .home-chart-stats { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 14px; font-size: .78rem; color: #555; border-top: 1px solid #eee; }
+  .hc-stat b { font-weight: 700; }
+  .hc-pos { color: #26a69a; }
+  .hc-neg { color: #ef5350; }
+  .hc-divider { width: 1px; height: 14px; background: #ddd; }
+  .home-chart-link { display: block; text-align: center; padding: 8px; font-size: .78rem; color: #5c6bc0; font-weight: 600; border-top: 1px solid #eee; transition: background .15s; }
+  .home-chart-link:hover { background: #f0f0f4; }
+  @media (max-width: 760px) {
+    .zero-categories { grid-template-columns: repeat(2, 1fr); }
+    .zero-archive-head { display: block; }
+    .zero-archive-links { justify-content: flex-start; margin-top: 14px; }
+  }
+  @media (max-width: 480px) {
+    .zero-categories { grid-template-columns: 1fr; }
+    .zero-hero { padding-top: 8px; }
+    #home-chart { height: 220px; }
+  }
+</style>
+<script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js" defer></script>
+<script src="{{ "js/home-chart.js" | relURL }}" defer></script>
 {{ end }}
