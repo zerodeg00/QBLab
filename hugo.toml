@@ -67,9 +67,14 @@ paginate = 12
   weight = 4
 
 [[menus.main]]
+  name = 'AI Report'
+  url = '/ai-report/'
+  weight = 5
+
+[[menus.main]]
   name = 'About'
   url = '/about/'
-  weight = 5
+  weight = 6
 
 [params.assets]
   favicon = '/favicon.ico'
