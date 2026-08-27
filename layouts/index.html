@@ -28,7 +28,7 @@
 
 {{ $writing := slice }}
 {{ range .Site.RegularPages.ByDate.Reverse }}
-  {{ if and (not .Params.unlisted) (not (in (slice "posts" "monthly" "trades" "about") .Section)) }}
+  {{ if and (not .Params.unlisted) (not (in (slice "posts" "monthly" "trades" "about" "ai-report") .Section)) }}
     {{ $writing = $writing | append . }}
   {{ end }}
 {{ end }}
@@ -59,13 +59,26 @@
 <section class="zero-archive">
   <div class="zero-archive-head">
     <div>
-      <p class="zero-kicker">MONEY ARCHIVE</p>
-      <h2>자동매매 기록은 그대로 남깁니다</h2>
-      <p>기존 QBLab에서 쌓아온 데일리·월간 리포트와 실매매 기록은 과거를 지우지 않고 하나의 투자 아카이브로 보존합니다.</p>
+      <p class="zero-kicker">AI REPORT</p>
+      <h2>기존 시장 리포트는 별도로 모아둡니다</h2>
+      <p>기존 QBLab에서 작성해온 AI 기반 데일리·월간 시장 리포트는 개인적인 글과 구분해 별도 아카이브에서 볼 수 있습니다.</p>
     </div>
     <div class="zero-archive-links">
-      <a href="/posts/">데일리 리포트</a>
-      <a href="/monthly/">월간 리포트</a>
+      <a href="/ai-report/">AI Report 보기</a>
+      <a href="/posts/">데일리</a>
+      <a href="/monthly/">월간</a>
+    </div>
+  </div>
+</section>
+
+<section class="zero-archive zero-trading-archive">
+  <div class="zero-archive-head">
+    <div>
+      <p class="zero-kicker">TRADING ARCHIVE</p>
+      <h2>자동매매 기록도 그대로 남깁니다</h2>
+      <p>실제 자동매매 결과와 매매내역은 Money 영역의 기록으로 계속 보존합니다.</p>
+    </div>
+    <div class="zero-archive-links">
       <a href="/trades/">매매내역</a>
     </div>
   </div>
@@ -102,6 +115,7 @@
   .zero-empty { padding: 20px 0; border-top: 1px solid #ececef; border-bottom: 1px solid #ececef; color: #888; font-size: .9rem; }
 
   .zero-archive { margin-top: 48px; padding-top: 30px; border-top: 1px solid #ececef; }
+  .zero-trading-archive { margin-top: 32px; }
   .zero-archive-head { display: flex; justify-content: space-between; gap: 28px; align-items: flex-end; margin-bottom: 14px; }
   .zero-archive-head h2 { margin: 0 0 8px; font-size: 1.18rem; color: #222; }
   .zero-archive-head p:not(.zero-kicker) { margin: 0; max-width: 620px; color: #777; font-size: .88rem; line-height: 1.65; }
