@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 945" width="1800" height="945">
+  <defs>
+    <style>
+      @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+      text { font-family: 'Pretendard', sans-serif; }
+    </style>
+  </defs>
+
+  <!-- 배경 -->
+  <rect width="1800" height="945" fill="#FFFFFF"/>
+
+  <!-- 가격 -->
+  <text x="900" y="340" text-anchor="middle"
+        font-size="160" font-weight="700" fill="#1E1F21">
+    $74,131
+  </text>
+
+  <!-- 변동률 -->
+  <text x="900" y="500" text-anchor="middle"
+        font-size="80" font-weight="700" fill="#EF4444">
+    ▼  -0.4%
+  </text>
+
+  <!-- 구분선 -->
+  <line x1="80" y1="590" x2="1720" y2="590"
+        stroke="#E6E6E9" stroke-width="2"/>
+
+  <!-- 포지션 (중앙) -->
+  <text x="900" y="720" text-anchor="middle"
+        font-size="72" font-weight="700" fill="#10B981">
+    포지션 — 롱
+  </text>
+
+  <!-- 공포지수 (중앙) -->
+  <text x="900" y="850" text-anchor="middle"
+        font-size="72" font-weight="700" fill="#1E1F21">
+    공포지수 — 15
+  </text>
+</svg>
