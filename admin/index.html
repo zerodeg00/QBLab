@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Content Manager | 큐비랩</title>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Maru+Buri:wght@300;400;700&display=swap");
+    CMS.registerPreviewStyle("https://cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css");
+    CMS.registerPreviewStyle("/css/style.css");
+
+    var PostPreview = createClass({
+      render: function () {
+        var entry = this.props.entry;
+        var title = entry.getIn(["data", "title"], "");
+        var date = entry.getIn(["data", "date"]);
+        var author = entry.getIn(["data", "author"], "");
+        var tags = entry.getIn(["data", "tags"]);
+        var cover = entry.getIn(["data", "cover"], "");
+
+        var dateStr = "";
+        if (date) {
+          var d = new Date(date);
+          dateStr = d.toISOString().slice(0, 10);
+        }
+
+        var tagEls = [];
+        if (tags) {
+          tagEls = tags.toJS().map(function (tag) {
+            return h("span", { className: "tag", key: tag }, "#" + tag);
+          });
+        }
+
+        return h("div", { className: "site-main", style: { maxWidth: "720px", margin: "0 auto", padding: "2rem 1.5rem" } },
+          h("article", { className: "post-single" },
+            h("header", { className: "post-header" },
+              h("h1", { className: "post-title" }, title),
+              h("div", { className: "post-meta" },
+                h("time", {}, dateStr),
+                author ? h("span", { className: "author" }, " · " + author) : null
+              ),
+              h("div", { className: "post-tags" }, tagEls)
+            ),
+            cover
+              ? h("div", { className: "post-cover" },
+                  h("img", { src: this.props.getAsset(cover).toString(), alt: title })
+                )
+              : null,
+            h("div", { className: "post-content" }, this.props.widgetFor("body"))
+          )
+        );
+      },
+    });
+
+    CMS.registerPreviewTemplate("posts", PostPreview);
+    CMS.registerPreviewTemplate("trades", PostPreview);
+    CMS.registerPreviewTemplate("about", PostPreview);
+  </script>
+</body>
+</html>
